@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace AsCoroutine
 {
@@ -131,7 +132,7 @@ namespace AsCoroutine
             return cooperator.Yield((object)null);
         }
 
-        public static Cooperator<WWW> YieldWWW(this Cooperator cooperator, WWW www)
+        public static Cooperator<UnityWebRequest> YieldWebRequest(this Cooperator cooperator, UnityWebRequest www)
         {
             return cooperator.Yield(www);
         }

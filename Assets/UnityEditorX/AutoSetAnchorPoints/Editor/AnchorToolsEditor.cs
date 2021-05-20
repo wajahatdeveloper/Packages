@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
-using UnityEngine;
 
 [InitializeOnLoad]
 public class AnchorToolsEditor : EditorWindow

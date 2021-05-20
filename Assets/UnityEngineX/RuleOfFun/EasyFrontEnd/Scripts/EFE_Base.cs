@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
 
 
 public class EFE_Base: MonoBehaviour {
@@ -255,10 +255,10 @@ public class EFE_Base: MonoBehaviour {
 		panel.transitionSpeed =fadeDelay;
 		prevPanel.PositionTransitionFadePanel();
 		//print("fade - Setting Panel OFF ");
-		currentPanel.active=false;
+		currentPanel.SetActive(false);
 		//print("Started coroutine");
 		yield return new WaitForSeconds(fadeDelay);
-		currentPanel.active=true;
+		currentPanel.SetActive(true);
 		//print("fade - Done trans OUT after delay of "+fadeDelay);
 		prevPanel.DoTransitionOut();
 		
@@ -289,10 +289,10 @@ public class EFE_Base: MonoBehaviour {
 		
 		panel.PositionTransitionFadePanel();
 		//print("fade - Setting Panel OFF ");
-		currentPanel.active=false;
+		currentPanel.SetActive(false);
 		//print("Started coroutine");
 		yield return new WaitForSeconds(fadeDelay);
-		currentPanel.active=true;
+		currentPanel.SetActive(true);
 		//print("End of coroutine");
 		panel.DoTransitionIn();
 		//print("fade - Done trans IN after delay of "+fadeDelay);
@@ -437,16 +437,12 @@ public class EFE_Base: MonoBehaviour {
 	
 	public void LoadScene(string sceneName)
 	{
-		
-		Application.LoadLevel(sceneName);
-
+		SceneManager.LoadScene(sceneName);
 	}
 	
 	public void ReloadCurrentScene()
 	{
-		
-		Application.LoadLevel(Application.loadedLevel);
-
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 	
 	

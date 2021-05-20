@@ -306,7 +306,7 @@ public class EFE_PanelTransition : MonoBehaviour {
 		efe_base_comp.isFirstPanel=false;
 		//print("fade - Swicth panels and fade out");
 		//switch panels
-		efe_base.GetComponent<EFE_Base>().currentPanel.active=true;
+		efe_base.GetComponent<EFE_Base>().currentPanel.SetActive(true);
 		//now fade out
 		efe_base_comp.fadeDelay = efe_base_comp.currentPanel.GetComponent<EFE_PanelTransition>().transitionSpeed;
 		
