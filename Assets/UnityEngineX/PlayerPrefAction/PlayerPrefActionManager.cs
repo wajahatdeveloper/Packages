@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PrefActionManager : MonoBehaviour
+public class PlayerPrefActionManager : MonoBehaviour
 {
 	public enum Prefs
 	{

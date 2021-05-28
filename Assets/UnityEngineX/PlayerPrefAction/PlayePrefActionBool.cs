@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PrefActionBool : MonoBehaviour
+public class PlayePrefActionBool : MonoBehaviour
 {
-	public PrefActionManager.Prefs Pref;
+	public PlayerPrefActionManager.Prefs Pref;
 	public int id = 0;
 	public QuickEvent OnPrefTrue;
 	public QuickEvent OnPrefFalse;
