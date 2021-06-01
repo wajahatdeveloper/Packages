@@ -1,6 +1,12 @@
-﻿using UnityEngine;
+﻿using Sisus;
+using Sisus.Attributes;
+using UnityEngine;
 
-public class Note : MonoBehaviour
+namespace UnityEngineX
 {
-	public string text = "Type your note here";
+	public class Note : MonoBehaviour
+	{
+		[UseDrawer("StyledTextDrawer"), TextArea]
+		public string text = "Type your note here";
+	}
 }
