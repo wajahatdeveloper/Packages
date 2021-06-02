@@ -214,6 +214,7 @@ GameObject:
   - component: {fileID: 519404453}
   - component: {fileID: 519404452}
   - component: {fileID: 519404455}
+  - component: {fileID: 519404456}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -291,6 +292,19 @@ MonoBehaviour:
     inspectorListHeight: 63
     persistentCalls:
       calls: []
+--- !u!114 &519404456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519404451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa992babcf073a44aa1cf6b61408797e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: Type your note here
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,16 +959,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9b53b542caf40746bb6d374b9da1158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnCurrencyIncrease:
-    inspectorListHeight: 63
+  typesOfEnonomies: []
+  onEconomyIncrease:
+    inspectorListHeight: 40
     persistentCalls:
       calls: []
-  OnCurrencyDecrease:
-    inspectorListHeight: 63
+  onEconomyDecrease:
+    inspectorListHeight: 40
     persistentCalls:
       calls: []
-  OnCurrencyChange:
-    inspectorListHeight: 63
+  onEconomyChange:
+    inspectorListHeight: 40
     persistentCalls:
       calls: []
 --- !u!1 &1425492198
