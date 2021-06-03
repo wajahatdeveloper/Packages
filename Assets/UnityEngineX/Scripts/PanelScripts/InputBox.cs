@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
@@ -10,7 +8,7 @@ public class InputBox : SingletonBehaviour<InputBox>
     public InputField inputField;
     public GameObject inputPanel;
 
-    public string enteredText = ""; 
+    public string enteredText = "";
 
     public UnityEvent<string> onClose;
 

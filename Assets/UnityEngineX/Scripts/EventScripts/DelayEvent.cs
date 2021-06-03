@@ -13,16 +13,12 @@ public class DelayEvent : MonoBehaviour
 		StartCoroutine(OnEvent(delay));
 	}
 
-	public IEnumerator OnEvent(float delay)
+	private IEnumerator OnEvent(float delay)
 	{
 		if (scaledTime)
-		{
 			yield return new WaitForSeconds(delay);
-		}
 		else
-		{
 			yield return new WaitForSecondsRealtime(delay);
-		}
 
 		onEvent?.Invoke();
 	}

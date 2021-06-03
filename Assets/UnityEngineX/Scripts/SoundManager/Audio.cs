@@ -62,7 +62,7 @@ namespace UnityEngineX
             {
                 if(value == null)
                 {
-                    sourceTransform = AudioManager.Gameobject.transform;
+                    sourceTransform = AudioManager.instance.gameObject.transform;
                 }
                 else
                 {
@@ -353,7 +353,7 @@ namespace UnityEngineX
             Priority = 128;
             Pitch = 1;
             StereoPan = 0;
-            if (sourceTransform != null && sourceTransform != AudioManager.Gameobject.transform)
+            if (sourceTransform != null && sourceTransform != AudioManager.instance.gameObject.transform)
             {
                 SpatialBlend = 1;
             }

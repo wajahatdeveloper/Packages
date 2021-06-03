@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using UnityEngineX;
 
 public class PopupMessage : SingletonBehaviour<PopupMessage>
 {
@@ -13,14 +9,14 @@ public class PopupMessage : SingletonBehaviour<PopupMessage>
 
     public UnityEvent onClose;
 
-    private bool _isAuto = false;
+    private bool _isAuto;
 
     public void ShowAuto(string message)
     {
         _isAuto = true;
         Show(message);
     }
-    
+
     public void Show(string message)
     {
         messageText.text = message;
@@ -32,10 +28,10 @@ public class PopupMessage : SingletonBehaviour<PopupMessage>
         _isAuto = false;
         Hide();
     }
-    
+
     public void Hide()
     {
-        if (_isAuto) { return; }
+        if (_isAuto) return;
         messagePanel.SetActive(false);
         onClose?.Invoke();
         onClose?.RemoveAllListeners();
