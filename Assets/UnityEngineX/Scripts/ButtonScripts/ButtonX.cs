@@ -51,11 +51,11 @@ namespace UnityEngineX
 				{
 					if (useCustomSound)
 					{
-						AudioManager.PlayUISound( customSound );
+						///AudioManager.PlayUISound( customSound );
 					}
 					else
 					{
-						AudioManager.GetUISoundAudio( soundID ).Play();
+						///AudioManager.GetUISoundAudio( soundID ).Play();
 					}
 				}
 			} );
