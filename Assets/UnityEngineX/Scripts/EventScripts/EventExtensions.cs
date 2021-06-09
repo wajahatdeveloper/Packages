@@ -13,6 +13,8 @@ public static class EventExtensions
     public static Dictionary<string, Dictionary<GameObject, List<EventWithData>>> eventHandlers =
         new Dictionary<string, Dictionary<GameObject, List<EventWithData>>>();
 
+    public static bool disableLogging = false;
+
     public static void ConnectEvent(this GameObject listener, string eventName, EventWithData func)
     {
         if (eventName.IsEmpty()) return;
@@ -58,6 +60,9 @@ public static class EventExtensions
 
         foreach (var item in eventHandlers[eventName])
         foreach (var handler in item.Value)
+        {
+            if (disableLogging == false) { ConsoleProDebug.LogToFilter($"{eventName} Raised by {sender.name}","Events"); }
             handler(sender, eventData);
+        }
     }
 }
