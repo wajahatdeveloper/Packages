@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using MyBox;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace UnityEngineX
@@ -11,17 +9,17 @@ namespace UnityEngineX
 	[RequireComponent(typeof(Button))]
 	public class ButtonX : MonoBehaviour , IPointerEnterHandler , IPointerExitHandler , IPointerDownHandler , IPointerUpHandler
 	{
-		//[Foldout("Click Action",true)]
+		[Foldout("Click Action",true)]
 		public UnityEvent<ButtonX> OnClick;
 		
-		//[Foldout("Click Sound",true)]
+		[Foldout("Click Sound",true)]
 		public bool clickSound;
 		public string customSoundID = "custom";
 		public bool useCustomSound;
-		//[ConditionalField( "useCustomSound" )]
+		[ConditionalField( "useCustomSound" )]
 		public AudioClip customSound;
 
-		//[Foldout("Click Events", true)]
+		[Foldout("Click Events", true)]
 		public UnityEvent<ButtonX> OnPointerDown;
 		public UnityEvent<ButtonX> OnPointerUp;
 		public UnityEvent<ButtonX> OnPointerEnter;

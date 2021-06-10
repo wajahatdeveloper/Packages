@@ -20,7 +20,7 @@ public class MainMenu : SingletonBehaviour<MainMenu>
     {
         SceneManager.LoadScene(nextSceneIndex);
     }
-
+    
     private void OnDisable()
     {
         gameObject.DisconnectEvent(SpecialButton.Event_PlayClicked);
