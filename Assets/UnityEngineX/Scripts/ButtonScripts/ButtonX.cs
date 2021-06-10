@@ -11,17 +11,17 @@ namespace UnityEngineX
 	[RequireComponent(typeof(Button))]
 	public class ButtonX : MonoBehaviour , IPointerEnterHandler , IPointerExitHandler , IPointerDownHandler , IPointerUpHandler
 	{
-		[Foldout("Click Action",true)]
+		//[Foldout("Click Action",true)]
 		public UnityEvent<ButtonX> OnClick;
 		
-		[Foldout("Click Sound",true)]
+		//[Foldout("Click Sound",true)]
 		public bool clickSound;
-		public int soundID;
+		public string customSoundID = "custom";
 		public bool useCustomSound;
-		[ConditionalField( "useCustomSound" )]
+		//[ConditionalField( "useCustomSound" )]
 		public AudioClip customSound;
 
-		[Foldout("Click Events", true)]
+		//[Foldout("Click Events", true)]
 		public UnityEvent<ButtonX> OnPointerDown;
 		public UnityEvent<ButtonX> OnPointerUp;
 		public UnityEvent<ButtonX> OnPointerEnter;
@@ -44,20 +44,11 @@ namespace UnityEngineX
 
 		private void Start()
 		{
+			if (clickSound) { AudioController.AddToCategory(AudioController.GetCategory("SFX"), customSound , "Click" + customSoundID); }
 			_button = GetComponent<Button>();
 			_button.onClick.AddListener( () => {
 				OnClick?.Invoke(this);
-				if (clickSound)
-				{
-					if (useCustomSound)
-					{
-						///AudioManager.PlayUISound( customSound );
-					}
-					else
-					{
-						///AudioManager.GetUISoundAudio( soundID ).Play();
-					}
-				}
+				if (clickSound) { AudioController.Play(useCustomSound ? "Click" + customSoundID : "Click"); }
 			} );
 		}
 

@@ -14,7 +14,7 @@ public static class EventExtensions
         new Dictionary<string, Dictionary<GameObject, List<EventWithData>>>();
 
     public static bool disableLogging = false;
-
+    
     public static void ConnectEvent(this GameObject listener, string eventName, EventWithData func)
     {
         if (eventName.IsEmpty()) return;
