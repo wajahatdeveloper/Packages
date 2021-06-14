@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2205411427031781357
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2205411427031781347}
+  - component: {fileID: 2205411427031781356}
+  m_Layer: 0
+  m_Name: TestGizmo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2205411427031781347
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2205411427031781357}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2205411427031781356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2205411427031781357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fed54dd0b0fddc243928de0b5ecc69af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: Cube
+  color: {r: 1, g: 0, b: 0, a: 1}
+  active: 1
+  positionIsCenterCube: 1
+  cubeCenter: {x: 0, y: 0, z: 0}
+  cubeSize: {x: 1, y: 1, z: 1}
+  positionIsCenterFrustum: 1
+  frustumCenter: {x: 0, y: 0, z: 0}
+  fov: 0
+  maxRange: 0
+  minRange: 0
+  aspect: 0
+  screenRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  texture: {fileID: 0}
+  mat: {fileID: 0}
+  positionIsCenterIcon: 1
+  iconCenter: {x: 0, y: 0, z: 0}
+  iconName: 
+  allowScaling: 1
+  useTwoTransforms: 0
+  fromV: {x: 0, y: 0, z: 0}
+  toV: {x: 0, y: 0, z: 0}
+  fromTr: {fileID: 0}
+  toTr: {fileID: 0}
+  mesh: {fileID: 0}
+  transformIsMeshTransform: 1
+  meshPosition: {x: 0, y: 0, z: 0}
+  meshRotation: {x: 0, y: 0, z: 0}
+  meshScale: {x: 1, y: 1, z: 1}
+  subMeshIndex: -1
+  fromR: {x: 0, y: 0, z: 0}
+  directionR: {x: 0, y: 0, z: 0}
+  positionIsCenterSphere: 1
+  sphereCenter: {x: 0, y: 0, z: 0}
+  radiusS: 1
+  positionIsCenterWireCube: 1
+  wireCubeCenter: {x: 0, y: 0, z: 0}
+  wireCubeSize: {x: 1, y: 1, z: 1}
+  wireMesh: {fileID: 0}
+  transformIsWireMeshTransform: 1
+  wireMeshPosition: {x: 0, y: 0, z: 0}
+  wireMeshRotation: {x: 0, y: 0, z: 0}
+  wireMeshScale: {x: 1, y: 1, z: 1}
+  subWireMeshIndex: -1
+  positionIsCenterWireSphere: 1
+  wireSphereCenter: {x: 0, y: 0, z: 0}
+  radiusWS: 1
+  cam: {fileID: 0}
+  drawVertex: 0
+  startPointLE: {x: 0, y: 0, z: 0}
+  endPointLE: {x: 0, y: 0, z: 0}
+  fromTrLE: {fileID: 0}
+  toTrLE: {fileID: 0}
+  thickness: 0.05
+  useTwoTransformsLE: 0
+  positionCE: {x: 0, y: 0, z: 0}
+  rotationCE: {x: 0, y: 0, z: 0}
+  scaleCE: {x: 1, y: 1, z: 1}
+  positionWCE: {x: 0, y: 0, z: 0}
+  rotationWCE: {x: 0, y: 0, z: 0}
+  scaleWCE: {x: 1, y: 1, z: 1}
