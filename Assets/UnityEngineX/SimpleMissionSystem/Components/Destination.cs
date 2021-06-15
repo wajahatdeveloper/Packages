@@ -15,6 +15,27 @@ public class Destination : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.gameObject.CompareTag(tagToCheck)) { return; }
+
+        switch (thisMission.missionType)
+        {
+            case MissionType.TRAVEL:
+                thisMission.OnMissionFinished?.Invoke();
+                break;
+            case MissionType.DESTROY:
+                break;
+            case MissionType.COLLECT:
+                break;
+            case MissionType.ESCORT:
+                break;
+            case MissionType.SEARCH:
+                break;
+            case MissionType.REPAIR:
+                break;
+            case MissionType.DELIVERY:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
         OnDestinationReached?.Invoke();
         ConsoleProDebug.LogToFilter($"Mission {thisMission.name} Destination Reached : Type => {thisMission.missionType}","Missions");
     }

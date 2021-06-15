@@ -673,8 +673,10 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
-    1: POWER_INSPECTOR;CONSOLE_PRO
-    7: POWER_INSPECTOR
+    1: POWER_INSPECTOR;CONSOLE_PRO;CROSS_PLATFORM_INPUT
+    4: CROSS_PLATFORM_INPUT;MOBILE_INPUT
+    7: POWER_INSPECTOR;CROSS_PLATFORM_INPUT;MOBILE_INPUT
+    14: MOBILE_INPUT
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}
