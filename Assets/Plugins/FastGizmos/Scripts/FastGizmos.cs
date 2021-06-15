@@ -1,8 +1,4 @@
-﻿//FastGizmos Tool by SVerde
-//contact@sverdegd.com
-//https://github.com/sverdegd
-
-using System;
+﻿using System;
 using UnityEngine;
 
 namespace SVerdeTools.FastGizmos
@@ -193,7 +189,7 @@ namespace SVerdeTools.FastGizmos
                     FastGizmosExtra.DrawCubeExtended(positionCE, Quaternion.Euler(rotationCE.x, rotationCE.y, rotationCE.z), scaleCE);
                     break;
                 case "WireCubeExtended":
-                    FastGizmosExtra.DrawWireCubeExtended(positionWCE, Quaternion.Euler(rotationWCE.x, rotationWCE.y, rotationWCE.z), scaleWCE);
+                    FastGizmosExtra.DrawWireCubeExtended(transform.position + positionWCE, Quaternion.Euler(rotationWCE.x, rotationWCE.y, rotationWCE.z), scaleWCE);
                     break;
             }
 

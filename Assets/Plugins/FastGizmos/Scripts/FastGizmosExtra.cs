@@ -1,7 +1,4 @@
-﻿//FastGizmos Tool by SVerde
-//contact@sverdegd.com
-//https://github.com/sverdegd
-
+﻿
 using UnityEngine;
 
 namespace SVerdeTools.FastGizmos {
