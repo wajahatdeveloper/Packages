@@ -7,36 +7,22 @@ using UnityEngine.Events;
 
 public class Destination : MonoBehaviour
 {
+    public string missionName;
     [Tag] public string tagToCheck = "";
     public UnityEvent OnDestinationReached;
     
-    [HideInInspector] public SimpleMission thisMission;
+    private SimpleMission _thisMission;
+
+    private void Start()
+    {
+        _thisMission = SimpleMission.missionList[missionName];
+    }
     
     private void OnTriggerEnter(Collider other)
     {
         if (!other.gameObject.CompareTag(tagToCheck)) { return; }
-
-        switch (thisMission.missionType)
-        {
-            case MissionType.TRAVEL:
-                thisMission.OnMissionFinished?.Invoke();
-                break;
-            case MissionType.DESTROY:
-                break;
-            case MissionType.COLLECT:
-                break;
-            case MissionType.ESCORT:
-                break;
-            case MissionType.SEARCH:
-                break;
-            case MissionType.REPAIR:
-                break;
-            case MissionType.DELIVERY:
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
         OnDestinationReached?.Invoke();
-        ConsoleProDebug.LogToFilter($"Mission {thisMission.name} Destination Reached : Type => {thisMission.missionType}","Missions");
+        _thisMission.Mission_Travel_DestinationReached();
+        ConsoleProDebug.LogToFilter($"Mission {_thisMission.name} Destination Reached : Type => {_thisMission.missionType}","Missions");
     }
 }

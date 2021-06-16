@@ -9,47 +9,81 @@ public enum MissionType
 {
     TRAVEL,
     DESTROY,
-    COLLECT,
-    ESCORT,
-    SEARCH,
-    REPAIR,
-    DELIVERY
+    COLLECT
 }
 
 public class SimpleMission : MonoBehaviour
 {
-    public static SimpleMission CurrentMission = null;
+    #region Static
 
-    private static Transform _currentPlayerInstance = null;
-    
+    public static SimpleMission CurrentMission
+    {
+        get => _currentMission;
+        set
+        {
+            ConsoleProDebug.LogToFilter(
+                value == null
+                    ? $"Simple Missions : Current Mission Set To => Null"
+                    : $"Simple Missions : Current Mission Set To => {value.name}", "Missions");
+            _currentMission = value;
+        }
+    }
+
+    private static SimpleMission _currentMission = null;
+
     public static Transform CurrentPlayerInstance
     {
         get => _currentPlayerInstance;
         set
         {
-            if (value == null)
-            {
-                ConsoleProDebug.LogToFilter($"Simple Missions : Player Instance Set To => Null","Missions");
-            }
-            else
-            {
-                ConsoleProDebug.LogToFilter($"Simple Missions : Player Instance Set To => {value.name}","Missions");
-            }
+            ConsoleProDebug.LogToFilter(
+                value == null
+                    ? $"Simple Missions : Player Instance Set To => Null"
+                    : $"Simple Missions : Player Instance Set To => {value.name}", "Missions");
             _currentPlayerInstance = value;
         }
     }
 
+    private static Transform _currentPlayerInstance = null;
+
+    public static Dictionary<string, SimpleMission> missionList;
+    
+    #endregion
+    
     public string missionName;
     [Multiline] public string missionStatement;
     public MissionType missionType;
     public StartPoint startPoint;
 
+    #region TRAVEL_DECL
+
     [ConditionalField(nameof(missionType), false, MissionType.TRAVEL)]
     public Destination destination;
+    
+    #endregion
+
+    #region DESTROY_DECL
+
+    [ConditionalField(nameof(missionType), false, MissionType.DESTROY)]
+    public int destroyCount = 0;
+
+    private int _destroyedKeys = 0;
+    
+    #endregion
+    
+    #region COLLECT_DECL
+
+    [ConditionalField(nameof(missionType), false, MissionType.COLLECT)]
+    public int collectCount = 0;
+
+    private int _collectedKeys = 0;
+    
+    #endregion
 
     [Space]
     
     public bool startOnEnable = true;
+    public bool disableOnComplete = true;
 
     [Space]
     
@@ -71,24 +105,16 @@ public class SimpleMission : MonoBehaviour
         
         OnMissionStart?.Invoke();
         
-        destination.thisMission = this;
-
         switch (missionType)
         {
             case MissionType.TRAVEL:
                 Mission_Travel_Start();
                 break;
             case MissionType.DESTROY:
+                Mission_Destroy_Start();
                 break;
             case MissionType.COLLECT:
-                break;
-            case MissionType.ESCORT:
-                break;
-            case MissionType.SEARCH:
-                break;
-            case MissionType.REPAIR:
-                break;
-            case MissionType.DELIVERY:
+                Mission_Collect_Start();
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -96,7 +122,71 @@ public class SimpleMission : MonoBehaviour
         ConsoleProDebug.LogToFilter($"Mission {missionName} Started : Type => {missionType}","Missions");
     }
 
+    public void EndMission()
+    {
+        OnMissionFinished?.Invoke();
+        if (disableOnComplete) { gameObject.SetActive(false); }
+    }
+    
+    #region TRAVEL
+
     private void Mission_Travel_Start()
     {
     }
+
+    public void Mission_Travel_DestinationReached()
+    {
+        Mission_Travel_Complete();
+    }
+
+    private void Mission_Travel_Complete()
+    {
+        EndMission();
+    }
+
+    #endregion
+    
+    #region DESTROY
+
+    private void Mission_Destroy_Start()
+    {
+    }
+
+    public void Mission_Destroy_KeyDestroyed()
+    {
+        _destroyedKeys++;
+        if (_destroyedKeys >= destroyCount)
+        {
+            Mission_Destroy_Complete();
+        }
+    }
+
+    private void Mission_Destroy_Complete()
+    {
+        EndMission();
+    }
+
+    #endregion
+    
+    #region COLLECT
+
+    private void Mission_Collect_Start()
+    {
+    }
+
+    public void Mission_Collect_KeyCollected()
+    {
+        _collectedKeys++;
+        if (_collectedKeys >= collectCount)
+        {
+            Mission_Collect_Complete();
+        }
+    }
+
+    private void Mission_Collect_Complete()
+    {
+        EndMission();
+    }
+
+    #endregion
 }
