@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEngine;
+#pragma warning disable 108,114
 
 namespace SheetCodesEditor
 {
@@ -1411,7 +1412,7 @@ namespace SheetCodesEditor
         private void DrawButtonRow_NoSheet()
         {
             Rect taskbarRect = new Rect(0, 0, position.width, WindowSettings.BUTTONROW_HEIGHT + WindowSettings.TASKBAR_SEPARATOR_HEIGHT - 2);
-            EditorGUI.DrawRect(taskbarRect, new Color(0.9f, 0.9f, 0.9f));
+            EditorGUI.DrawRect(taskbarRect, new Color(0.27f, 0.27f, 0.27f));
             Rect buttonRect = new Rect(2, 2, 88, WindowSettings.BUTTONROW_HEIGHT);
 
             DrawButtonRow_SaveButton(buttonRect);
