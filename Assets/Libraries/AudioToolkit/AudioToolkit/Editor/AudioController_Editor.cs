@@ -795,7 +795,7 @@ public class AudioController_Editor : EditorEx
         
 
         EditorGUILayout.Space();
-
+        
         if ( globalFoldout = EditorGUILayout.Foldout( globalFoldout, "Global Audio Settings", foldoutStyle ) )
         {
             bool currentlyAdditionalController = AC.isAdditionalAudioController;
