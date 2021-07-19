@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEditor;
 using UnityEditor.SceneManagement;
+using System.Linq;
 
 namespace BayatGames.Utilities.Editor
 {
@@ -81,8 +82,16 @@ namespace BayatGames.Utilities.Editor
         protected virtual void ScenesTabGUI()
         {
             List<EditorBuildSettingsScene> buildScenes = new List<EditorBuildSettingsScene>(EditorBuildSettings.scenes);
-            string[] guids = AssetDatabase.FindAssets("t:Scene");
-            if (guids.Length == 0)
+            string[] guids = null;
+            if (scenesSource == ScenesSource.BuildSettings)
+			{
+				guids = buildScenes.Select(x=>x.guid.ToString()).ToArray();
+			}
+            else
+			{
+				guids = AssetDatabase.FindAssets( "t:Scene" );
+			}
+			if (guids.Length == 0)
             {
                 GUILayout.Label("No Scenes Found", EditorStyles.centeredGreyMiniLabel);
                 GUILayout.Label("Create New Scenes", EditorStyles.centeredGreyMiniLabel);
