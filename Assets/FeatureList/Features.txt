@@ -1,0 +1,62 @@
+Version 1.0 - 19-7-2021
+
+Engine:
+Audio Toolkit - for audio management
+Dotween Pro - for tweening
+Lean Pool - for object pooling
+Reporter - runtime log viewer
+Lunar Console - for runtime actions and dashboard
+Runtime Inspector - runtime Heirarchy and Inspector
+Almost Engine (simple localization) - localization support
+Sheet Codes - support for Scriptable Object based centeralized database
+
+Editor:
+Quick Events - enchanced Unity Events with multiple component and argument support
+Almost Engine (Device Preview) - preview devices in Editor
+Asset Usage Detector - find asset references scene and project
+Package2Folder - import package to specified Package2Folder
+Maintainer - find missing references and scripts
+Console Pro - for logging channel support
+Fast Gizmos - for custom Gizmos
+Player Prefs Editor - for viewing and editing player prefs in Editor
+Rainbow Folders - for folder icon support in project view
+Malbers Animations (Ultimate Selector) - assortment of various utilities and scripts
+Ultimate Selector - for selection screens
+AutoSetAnchorPoints - for easing the process of anchor points
+Enhanced Heirarchy - for enhanced heirarchy view and functionality
+Scene Switcher - quick switch scenes
+Odin Inspector and Serializer - for enhanced editor scripting and object serialization
+Texture Packer Importer - for importing texture packer atlases
+AssetPresetPostprocessor - for setting folders to import assets using preset settings
+
+Packages:
+UIExtensions - Extensions for UGUI
+MyBox - Attributes and Extensions
+TextMeshPro - Mesh Text for 3D and UGUI
+Timeline - for Cutscenes
+UI Particle - for particle systems on UGUI
+
+Custom Systems:
+Achievement System v1
+AsCoroutine v1
+Data Containers v1
+    MultikeyDictionary
+    PlayerPrefsX
+PlayerPrefAction v1
+Scrollable List v1
+Simple Mission System v1
+Build Manager v1
+Economy Manager v1
+Event Manager v1
+Game Manager v1
+Level Manager v1
+Panels and Popups v1
+    LoadingPanel
+    InputBox
+    PopupMessage
+    WaitPanel
+Spawner v1
+GameObjectReference v1
+UnityEngineX v1
+
+Standard Assets Included
