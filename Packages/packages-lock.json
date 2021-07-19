@@ -18,6 +18,13 @@
       },
       "hash": "c34af2de244f3f2906397e80529bd4354c93e3be"
     },
+    "com.mefistofiles.unity-event-visualizer": {
+      "version": "https://github.com/MephestoKhaan/UnityEventVisualizer.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "333052e19ea5df032d5338a5af8162d8530605c9"
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
@@ -41,7 +48,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.9",
+      "version": "2.0.11",
       "depth": 0,
       "source": "registry",
       "dependencies": {
