@@ -4,5 +4,6 @@ namespace SheetCodes
 
 	public enum DatasheetType
 	{
+		[Identifier("Events")] Events = 1,
 	}
 }
