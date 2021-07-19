@@ -1660,6 +1660,13 @@ public class AudioController : SingletonMonoBehaviour<AudioController>
         return false;
     }
 
+    protected static float musicVolume = 1.0f;
+
+    public static void SetMusicVolume(float volume)
+	{
+        musicVolume = volume;
+	}
+
     protected bool _PauseMusic( float fadeOut )
     {
         if ( _currentMusic != null )
@@ -1686,7 +1693,7 @@ public class AudioController : SingletonMonoBehaviour<AudioController>
 
         //Debug.Log( "PlayMusic " + audioID );
 
-        _currentMusic = _Play( audioID, volume, position, parentObj, delay, startTime, false );
+        _currentMusic = _Play( audioID, volume * musicVolume, position, parentObj, delay, startTime, false );
 
         if ( _currentMusic  )
         {
