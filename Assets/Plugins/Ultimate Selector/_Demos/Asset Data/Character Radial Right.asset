@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -16,7 +17,7 @@ MonoBehaviour:
   Save:
     Coins: 1000
     RestoreCoins: 1000
-    FocusedItem: 3
+    FocusedItem: 1
     Locked: 010000010101
     RestoreLocked: 010000010101
     ItemsAmount: 010000000100000001000000010000000100000001000000

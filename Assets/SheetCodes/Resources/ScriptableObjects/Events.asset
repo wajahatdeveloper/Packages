@@ -15,3 +15,15 @@ MonoBehaviour:
   records:
   - identifier: 1
     _id: SettingsClicked
+  - identifier: 2
+    _id: PlayClicked
+  - identifier: 3
+    _id: MoreGamesClicked
+  - identifier: 4
+    _id: RateUsClicked
+  - identifier: 5
+    _id: PrivacyPolicyClicked
+  - identifier: 6
+    _id: ExitClicked
+  - identifier: 7
+    _id: LevelClicked

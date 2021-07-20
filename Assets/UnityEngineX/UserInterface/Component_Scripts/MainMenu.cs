@@ -12,7 +12,7 @@ public class MainMenu : SingletonBehaviour<MainMenu>
         gameObject.ConnectEvent(SpecialButton.Event_RateUsClicked,(sender,eventData) => { });
         gameObject.ConnectEvent(SpecialButton.Event_MoreGamesClicked,(sender,eventData) => { });
         gameObject.ConnectEvent(SpecialButton.Event_PrivacyPolicyClicked, (sender,eventData) => { });
-        gameObject.ConnectEvent(SpecialButton.Event_SettingsClicked,(sender,eventData) => { });
+        gameObject.ConnectEvent(SpecialButton.Event_SettingsClicked, ( sender, eventData ) => { } );
         gameObject.ConnectEvent(SpecialButton.Event_ExitClicked,(sender,eventData) => { });
     }
 
@@ -20,8 +20,8 @@ public class MainMenu : SingletonBehaviour<MainMenu>
     {
         SceneManager.LoadScene(nextSceneIndex);
     }
-    
-    private void OnDisable()
+
+	private void OnDisable()
     {
         gameObject.DisconnectEvent(SpecialButton.Event_PlayClicked);
         gameObject.DisconnectEvent(SpecialButton.Event_RateUsClicked);

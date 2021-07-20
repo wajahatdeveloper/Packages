@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public static class UIImageMenu
 {
 
-    [MenuItem("GameObject/UI/Set Native Size + Pivot", false, 10000)]
+    //[MenuItem("GameObject/UI/Set Native Size + Pivot", false, 10000)]
     private static void setSizeAndPivot()
     {
         foreach (GameObject gameObject in Selection.gameObjects)

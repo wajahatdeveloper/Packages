@@ -334,6 +334,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5530176410937738828, guid: 01992dcc93f55ca4cb96f5fc93853978,
+        type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 55
+      objectReference: {fileID: 0}
     - target: {fileID: 5530176410937738829, guid: 01992dcc93f55ca4cb96f5fc93853978,
         type: 3}
       propertyPath: m_Name
@@ -497,41 +502,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 502449074}
     m_Modifications:
-    - target: {fileID: 14236956, guid: 2b232c2d1de0ebe438dc0889db745321, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 436788964, guid: 2b232c2d1de0ebe438dc0889db745321, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 481361114, guid: 2b232c2d1de0ebe438dc0889db745321, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1044346530, guid: 2b232c2d1de0ebe438dc0889db745321, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2926863004025358035, guid: 2b232c2d1de0ebe438dc0889db745321,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2926863004198677227, guid: 2b232c2d1de0ebe438dc0889db745321,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2926863004689736795, guid: 2b232c2d1de0ebe438dc0889db745321,
         type: 3}
       propertyPath: m_Name
       value: Panel_Settings
-      objectReference: {fileID: 0}
-    - target: {fileID: 2926863004689736795, guid: 2b232c2d1de0ebe438dc0889db745321,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2926863004689736804, guid: 2b232c2d1de0ebe438dc0889db745321,
         type: 3}
@@ -640,28 +614,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b232c2d1de0ebe438dc0889db745321, type: 3}
---- !u!1 &1925558113 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2926863004689736795, guid: 2b232c2d1de0ebe438dc0889db745321,
-    type: 3}
-  m_PrefabInstance: {fileID: 1925558112}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1925558114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925558113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05a1deceaa260b64eb0ab119e331548b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventIdentifier: 
-  OnEventReceived:
-    m_PersistentCalls:
-      m_Calls: []
-  OnEventReceived_String:
-    m_PersistentCalls:
-      m_Calls: []

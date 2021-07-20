@@ -1,4 +1,4 @@
-﻿using MyBox;
+﻿using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -9,21 +9,18 @@ namespace UnityEngineX
 	[RequireComponent(typeof(Button))]
 	public class ButtonX : MonoBehaviour , IPointerEnterHandler , IPointerExitHandler , IPointerDownHandler , IPointerUpHandler
 	{
-		[Foldout("Click Action",true)]
+		[FoldoutGroup("Click Action")]
 		public UnityEvent<ButtonX> OnClick;
-		
-		[Foldout("Click Sound",true)]
-		public bool clickSound;
-		public string customSoundID = "custom";
-		public bool useCustomSound;
-		[ConditionalField( "useCustomSound" )]
-		public AudioClip customSound;
 
-		[Foldout("Click Events", true)]
-		public UnityEvent<ButtonX> OnPointerDown;
-		public UnityEvent<ButtonX> OnPointerUp;
-		public UnityEvent<ButtonX> OnPointerEnter;
-		public UnityEvent<ButtonX> OnPointerExit;
+		[FoldoutGroup( "Click Sound" )] public bool clickSound;
+		[FoldoutGroup( "Click Sound" )] public string customSoundID = "custom";
+		[FoldoutGroup( "Click Sound" )] public bool useCustomSound;
+		[FoldoutGroup( "Click Sound" ) ,ShowIf(nameof(useCustomSound))] public AudioClip customSound;
+
+		[FoldoutGroup( "Click Events")] public UnityEvent<ButtonX> OnPointerDown;
+		[FoldoutGroup( "Click Events")] public UnityEvent<ButtonX> OnPointerUp;
+		[FoldoutGroup( "Click Events")] public UnityEvent<ButtonX> OnPointerEnter;
+		[FoldoutGroup( "Click Events")] public UnityEvent<ButtonX> OnPointerExit;
 
 		public object Data
 		{
