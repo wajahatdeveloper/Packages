@@ -6,13 +6,13 @@ namespace GameDB
 	{
 		[Identifier("None")] None = 0,
 		[Identifier("SettingsClicked")] SettingsClicked = 1,
-		[Identifier("PlayClicked")] Playclicked = 2,
-		[Identifier("MoreGamesClicked")] Moregamesclicked = 3,
-		[Identifier("RateUsClicked")] Rateusclicked = 4,
-		[Identifier("PrivacyPolicyClicked")] Privacypolicyclicked = 5,
-		[Identifier("ExitClicked")] Exitclicked = 6,
-		[Identifier("LevelClicked")] Levelclicked = 7,
-		[Identifier("ChangeSceneClicked")] Changesceneclicked = 8,
+		[Identifier("PlayClicked")] PlayClicked = 2,
+		[Identifier("MoreGamesClicked")] MoreGamesClicked = 3,
+		[Identifier("RateUsClicked")] RateUsClicked = 4,
+		[Identifier("PrivacyPolicyClicked")] PrivacyPolicyClicked = 5,
+		[Identifier("ExitClicked")] ExitClicked = 6,
+		[Identifier("LevelClicked")] LevelClicked = 7,
+		[Identifier("ChangeSceneClicked")] ChangeSceneClicked = 8,
 	}
 
 	public static class EventsIdentifierExtension

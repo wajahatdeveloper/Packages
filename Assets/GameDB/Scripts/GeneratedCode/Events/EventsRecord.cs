@@ -30,7 +30,7 @@ namespace GameDB
             CopyData(editableCopy);
             model.SetEditableCopy(editableCopy);
 #else
-            Debug.LogError("SheetCodes: Creating an editable record does not work in buolds. See documentation 'Editing your data at runtime' for more information.");
+            Debug.LogError("GameDB: Creating an editable record does not work in buolds. See documentation 'Editing your data at runtime' for more information.");
 #endif
         }
 
@@ -45,7 +45,7 @@ namespace GameDB
             CopyData(originalRecord);
             model.SaveModel();
 #else
-            Debug.LogError("SheetCodes: Saving to ScriptableObject does not work in builds. See documentation 'Editing your data at runtime' for more information.");
+            Debug.LogError("GameDB: Saving to ScriptableObject does not work in builds. See documentation 'Editing your data at runtime' for more information.");
 #endif
         }
 

@@ -30,7 +30,7 @@ namespace BayatGames.Utilities.Editor
             "Settings"
         };
 
-        [MenuItem("Tools/Scene Switcher")]
+        [MenuItem("Hub/Scene Switcher")]
         public static void Init()
         {
             var window = EditorWindow.GetWindow<SceneSwitcherWindow>("Scene Switcher");

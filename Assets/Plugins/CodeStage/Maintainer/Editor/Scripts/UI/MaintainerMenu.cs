@@ -37,11 +37,11 @@ namespace CodeStage.Maintainer.UI
 		private const string ProjectBrowserContextReferencesFinderName = MenuSection + "/" + ReferencesFinderMenuName;
 		private const string ProjectBrowserContextReferencesFinderNoHotKey = ProjectBrowserContextStart + ProjectBrowserContextReferencesFinderName;
 		private const string ProjectBrowserContextReferencesFinder = ProjectBrowserContextReferencesFinderNoHotKey + " %#&s";
-		private const string MainMenu = "Tools/" + CodeStage + MenuSection + "/";
+		private const string MainMenu = "Hub/Maintainer/"; //"Tools/" + CodeStage + MenuSection + "/";
 
 		private static float lastMenuCallTimestamp;
 
-		[MenuItem(MainMenu + "Show %#&`", false, 900)]
+		[MenuItem( MainMenu + "Show %#&`", false, 900)]
 		private static void ShowWindow()
 		{
 			MaintainerWindow.Create();
