@@ -12,18 +12,20 @@ public enum SpecialButtonType
     PRIVACY_POLICY,
     SETTINGS,
     EXIT,
+    CHANGE_SCENE,
 }
 
 [RequireComponent(typeof(Button))]
 public class SpecialButton : MonoBehaviour
 {
-    public static readonly string Event_PlayClicked = "Event_PlayClicked";
-    public static readonly string Event_RateUsClicked = "Event_RateUsClicked";
-    public static readonly string Event_MoreGamesClicked = "Event_MoreGamesClicked";
-    public static readonly string Event_PrivacyPolicyClicked = "Event_PrivacyPolicyClicked";
-    public static readonly string Event_SettingsClicked = "Event_SettingsClicked";
-    public static readonly string Event_ExitClicked = "Event_ExitClicked";
-    
+    public static readonly string Event_PlayClicked = GameDB.EventsIdentifier.PlayClicked.ToString();
+    public static readonly string Event_RateUsClicked = GameDB.EventsIdentifier.RateUsClicked.ToString();
+    public static readonly string Event_MoreGamesClicked = GameDB.EventsIdentifier.MoreGamesClicked.ToString();
+    public static readonly string Event_PrivacyPolicyClicked = GameDB.EventsIdentifier.PrivacyPolicyClicked.ToString();
+    public static readonly string Event_SettingsClicked = GameDB.EventsIdentifier.SettingsClicked.ToString();
+    public static readonly string Event_ExitClicked = GameDB.EventsIdentifier.ExitClicked.ToString();
+    public static readonly string Event_ChangeSceneClicked = GameDB.EventsIdentifier.ChangeSceneClicked.ToString();
+
     public SpecialButtonType buttonType = SpecialButtonType.NONE;
     
     // Privacy Policy Link
@@ -37,8 +39,12 @@ public class SpecialButton : MonoBehaviour
     // More Games Link
     [ConditionalField(nameof(buttonType),compareValues:SpecialButtonType.MORE_GAMES)]
     public string moreGamesLink = "www.google.com";
-    
-    private void Start()
+
+    // Change Scene Index
+	[ConditionalField( nameof( buttonType ), compareValues: SpecialButtonType.CHANGE_SCENE )]
+	public int changeSceneIndex = 0;
+
+	private void Start()
     {
         var btn = GetComponent<Button>();
         btn.onClick.AddListener(OnClick_ThisButton);
@@ -68,6 +74,9 @@ public class SpecialButton : MonoBehaviour
                 break;
             case SpecialButtonType.EXIT:
                 gameObject.RaiseEvent(Event_ExitClicked);
+                break;
+            case SpecialButtonType.CHANGE_SCENE:
+                gameObject.RaiseEvent( Event_ChangeSceneClicked , changeSceneIndex );
                 break;
             default:
                 throw new ArgumentOutOfRangeException();

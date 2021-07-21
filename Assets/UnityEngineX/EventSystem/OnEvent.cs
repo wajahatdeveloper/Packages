@@ -7,7 +7,7 @@ using System;
 
 public class OnEvent : MonoBehaviour
 {
-	private static IEnumerable<string> EventsIdentifiers = Enum.GetNames( typeof( SheetCodes.EventsIdentifier ) );
+	private static IEnumerable<string> EventsIdentifiers = Enum.GetNames( typeof( GameDB.EventsIdentifier ) );
 
 	[ValueDropdown( "EventsIdentifiers" , IsUniqueList = true , DisableListAddButtonBehaviour = true , NumberOfItemsBeforeEnablingSearch = 1 )]
 	public string eventIdentifier;

@@ -6,7 +6,7 @@ public class LevelSelection : MonoBehaviour
 {
 	private void OnEnable()
 	{
-		gameObject.ConnectEvent( SheetCodes.EventsIdentifier.Levelclicked.ToString(), (sender, data)=> {
+		gameObject.ConnectEvent( GameDB.EventsIdentifier.Levelclicked.ToString(), (sender, data)=> {
 			LevelSelected( sender );
 		} );
 	}
@@ -19,6 +19,6 @@ public class LevelSelection : MonoBehaviour
 
 	private void OnDisable()
 	{
-		gameObject.DisconnectEvent( SheetCodes.EventsIdentifier.Levelclicked.ToString() );
+		gameObject.DisconnectEvent( GameDB.EventsIdentifier.Levelclicked.ToString() );
 	}
 }
