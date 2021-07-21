@@ -127,7 +127,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.0.0.1
+  bundleVersion: 0.0.1.0
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -675,7 +675,7 @@ PlayerSettings:
   scriptingDefineSymbols:
     1: POWER_INSPECTOR;CONSOLE_PRO;CROSS_PLATFORM_INPUT
     4: CROSS_PLATFORM_INPUT;MOBILE_INPUT
-    7: POWER_INSPECTOR;CROSS_PLATFORM_INPUT;MOBILE_INPUT
+    7: POWER_INSPECTOR;CROSS_PLATFORM_INPUT;MOBILE_INPUT;ODIN_INSPECTOR;ODIN_INSPECTOR_3
     14: MOBILE_INPUT
   additionalCompilerArguments: {}
   platformArchitecture: {}
