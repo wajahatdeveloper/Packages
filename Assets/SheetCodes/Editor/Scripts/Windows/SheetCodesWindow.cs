@@ -111,7 +111,7 @@ namespace SheetCodesEditor
             minSize = new Vector2(WindowSettings.MINWIDTH_DATADISPLAY, WindowSettings.MINHEIGTH_WINDOW);
             firstFrame = true;
             forceClosed = false;
-            titleContent.text = "Sheet Codes";
+            titleContent.text = "Game Database";
             CompilerExceptionDetector.onCompilerError += OnCompilerError;
         }
 
