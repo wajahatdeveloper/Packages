@@ -32,7 +32,9 @@ using LunarConsolePluginInternal;
 
 namespace LunarConsoleEditorInternal
 {
-    static class Updater
+	using Constants = LunarConsolePluginInternal.Constants;
+
+	static class Updater
     {
         private static readonly string kMessageBoxTitle = "Lunar Mobile Console";
         

@@ -28,7 +28,9 @@ using LunarConsolePluginInternal;
 
 namespace LunarConsoleEditorInternal
 {
-    static class AndroidPlugin
+	using Constants = LunarConsolePluginInternal.Constants;
+
+	static class AndroidPlugin
     {
         public static void SetEnabled(bool enabled)
         {

@@ -30,7 +30,9 @@ using LunarConsolePluginInternal;
 
 namespace LunarConsoleEditorInternal
 {
-    public static class Installer
+	using Constants = LunarConsolePluginInternal.Constants;
+
+	public static class Installer
     {
         public static void Install(bool silent = true)
         {

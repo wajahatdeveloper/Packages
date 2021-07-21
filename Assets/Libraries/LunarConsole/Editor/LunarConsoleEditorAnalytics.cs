@@ -30,7 +30,9 @@ using LunarConsolePluginInternal;
 
 namespace LunarConsoleEditorInternal
 {
-    static class LunarConsoleEditorAnalytics
+	using Constants = LunarConsolePluginInternal.Constants;
+
+	static class LunarConsoleEditorAnalytics
     {
         private static readonly string kPrefsLastKnownVersion = Constants.EditorPrefsKeyBase + ".LastKnownVersion";
 

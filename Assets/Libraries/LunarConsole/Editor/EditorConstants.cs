@@ -30,7 +30,9 @@ using LunarConsolePluginInternal;
 
 namespace LunarConsoleEditorInternal
 {
-    static class EditorConstants
+	using Constants = LunarConsolePluginInternal.Constants;
+
+	static class EditorConstants
     {
         private static string pluginRootDirectory;
 
