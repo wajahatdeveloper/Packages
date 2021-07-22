@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoHookButton: 1
-  eventIdentifier: Levelclicked
+  eventIdentifier: Clicked_Level
 --- !u!1 &1678104908025064890
 GameObject:
   m_ObjectHideFlags: 0

@@ -217,6 +217,7 @@ MonoBehaviour:
   privacyPolicyLink: www.google.com
   rateUsLink: www.google.com
   moreGamesLink: www.google.com
+  changeSceneIndex: 0
 --- !u!1 &5530176410237980418
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,6 +356,7 @@ MonoBehaviour:
   privacyPolicyLink: www.google.com
   rateUsLink: www.google.com
   moreGamesLink: www.google.com
+  changeSceneIndex: 0
 --- !u!1 &5530176410283660814
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,6 +709,7 @@ MonoBehaviour:
   privacyPolicyLink: www.google.com
   rateUsLink: www.google.com
   moreGamesLink: www.google.com
+  changeSceneIndex: 0
 --- !u!1 &5530176410396659191
 GameObject:
   m_ObjectHideFlags: 0
@@ -1320,7 +1323,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
 --- !u!114 &5530176410937738816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1472,6 +1475,7 @@ MonoBehaviour:
   privacyPolicyLink: www.google.com
   rateUsLink: www.google.com
   moreGamesLink: www.google.com
+  changeSceneIndex: 0
 --- !u!1 &5530176411166042628
 GameObject:
   m_ObjectHideFlags: 0
@@ -1815,6 +1819,7 @@ MonoBehaviour:
   privacyPolicyLink: www.google.com
   rateUsLink: www.google.com
   moreGamesLink: www.google.com
+  changeSceneIndex: 0
 --- !u!1 &5530176411415985519
 GameObject:
   m_ObjectHideFlags: 0
@@ -2028,6 +2033,7 @@ MonoBehaviour:
   privacyPolicyLink: www.google.com
   rateUsLink: www.google.com
   moreGamesLink: www.google.com
+  changeSceneIndex: 0
 --- !u!1 &5530176411736946676
 GameObject:
   m_ObjectHideFlags: 0

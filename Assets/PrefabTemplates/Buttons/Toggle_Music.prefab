@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoHookButton: 1
-  eventIdentifier: Event_ToggleMusic
+  eventIdentifier: Toggle_Music
 --- !u!114 &5773162641151588837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a1deceaa260b64eb0ab119e331548b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventIdentifier: Event_ToggleMusic
+  eventIdentifier: Toggle_Music
   OnEventReceived:
     m_PersistentCalls:
       m_Calls:
@@ -242,6 +242,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnEventReceived_String:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5773162641151588858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,6 +277,15 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   OnAudioStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSoundValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMusicValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAudioValueChanged:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &5773162642135941233

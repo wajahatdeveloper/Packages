@@ -18,13 +18,13 @@ public enum SpecialButtonType
 [RequireComponent(typeof(Button))]
 public class SpecialButton : MonoBehaviour
 {
-    public static readonly string Event_PlayClicked = GameDB.EventsIdentifier.PlayClicked.ToString();
-    public static readonly string Event_RateUsClicked = GameDB.EventsIdentifier.RateUsClicked.ToString();
-    public static readonly string Event_MoreGamesClicked = GameDB.EventsIdentifier.MoreGamesClicked.ToString();
-    public static readonly string Event_PrivacyPolicyClicked = GameDB.EventsIdentifier.PrivacyPolicyClicked.ToString();
-    public static readonly string Event_SettingsClicked = GameDB.EventsIdentifier.SettingsClicked.ToString();
-    public static readonly string Event_ExitClicked = GameDB.EventsIdentifier.ExitClicked.ToString();
-    public static readonly string Event_ChangeSceneClicked = GameDB.EventsIdentifier.ChangeSceneClicked.ToString();
+    public static readonly string Event_PlayClicked = GameDB.EventsIdentifier.Clicked_Play.ToString();
+    public static readonly string Event_RateUsClicked = GameDB.EventsIdentifier.Clicked_RateUs.ToString();
+    public static readonly string Event_MoreGamesClicked = GameDB.EventsIdentifier.Clicked_MoreGames.ToString();
+    public static readonly string Event_PrivacyPolicyClicked = GameDB.EventsIdentifier.Clicked_PrivacyPolicy.ToString();
+    public static readonly string Event_SettingsClicked = GameDB.EventsIdentifier.Clicked_Settings.ToString();
+    public static readonly string Event_ExitClicked = GameDB.EventsIdentifier.Game_Exit_Begin.ToString();
+    public static readonly string Event_ChangeSceneClicked = GameDB.EventsIdentifier.Scene_Changed.ToString();
 
     public SpecialButtonType buttonType = SpecialButtonType.NONE;
     
@@ -62,13 +62,16 @@ public class SpecialButton : MonoBehaviour
                 break;
             case SpecialButtonType.RATE_US:
                 gameObject.RaiseEvent(Event_RateUsClicked,rateUsLink);
-                break;
+				Application.OpenURL( rateUsLink );
+				break;
             case SpecialButtonType.MORE_GAMES:
                 gameObject.RaiseEvent(Event_MoreGamesClicked,moreGamesLink);
+                Application.OpenURL( moreGamesLink );
                 break;
             case SpecialButtonType.PRIVACY_POLICY:
                 gameObject.RaiseEvent(Event_PrivacyPolicyClicked,privacyPolicyLink);
-                break;
+				Application.OpenURL( privacyPolicyLink );
+				break;
             case SpecialButtonType.SETTINGS:
                 gameObject.RaiseEvent(Event_SettingsClicked);
                 break;

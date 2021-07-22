@@ -1313,7 +1313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a1deceaa260b64eb0ab119e331548b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventIdentifier: SettingsClicked
+  eventIdentifier: Clicked_Settings
   OnEventReceived:
     m_PersistentCalls:
       m_Calls:

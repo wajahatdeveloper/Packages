@@ -11,8 +11,6 @@ namespace GameDB
 	[Serializable]
 	public class EventsRecord : BaseRecord<EventsIdentifier>
 	{
-		[ColumnName("ID")] [SerializeField] private string _id = default;
-		public string Id { get { return _id; } set { if(!CheckEdit()) return; _id = value; }}
 
         protected bool runtimeEditingEnabled { get { return originalRecord != null; } }
         public EventsModel model { get { return ModelManager.EventsModel; } }
@@ -51,7 +49,6 @@ namespace GameDB
 
         private void CopyData(EventsRecord record)
         {
-            record._id = _id;
         }
 
         private bool CheckEdit()
