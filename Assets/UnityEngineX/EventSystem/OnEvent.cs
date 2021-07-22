@@ -20,7 +20,7 @@ public class OnEvent : MonoBehaviour
 		{
 			Debug.LogError( $"{name} is missing Event Receive Identifier" );
 		}
-		gameObject.ConnectEvent( "Event_" + eventIdentifier, EventCall );
+		gameObject.ConnectEvent( eventIdentifier, EventCall );
 	}
 
 	private void EventCall( GameObject sender, object eventData )
@@ -32,6 +32,6 @@ public class OnEvent : MonoBehaviour
 
 	private void OnDisable()
 	{
-		gameObject.DisconnectEvent( "Event_" + eventIdentifier );
+		gameObject.DisconnectEvent( eventIdentifier );
 	}
 }
