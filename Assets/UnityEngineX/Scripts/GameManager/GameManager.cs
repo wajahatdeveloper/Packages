@@ -1,7 +1,9 @@
+using GameDB;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : SingletonBehaviour<GameManager>
 {
@@ -12,9 +14,49 @@ public class GameManager : SingletonBehaviour<GameManager>
         Application.targetFrameRate = targetFrameRate;
     }
 
-    public void SetTimeScale(float timeScale)
+	private void OnEnable()
+	{
+        GameDB.EventsIdentifier.Game_Paused.ConnectEvent( gameObject, OnPaused );
+        GameDB.EventsIdentifier.Game_Resumed.ConnectEvent( gameObject, OnResumed );
+        GameDB.EventsIdentifier.Game_Restart_Begin.ConnectEvent( gameObject, OnRestart );
+        GameDB.EventsIdentifier.Game_ToBack.ConnectEvent( gameObject, OnHome );
+	}
+
+	private void OnHome( GameObject sender, object data )
+	{
+		Debug.Log( "Game Manager : Going to Home" );
+		SceneManager.LoadScene( SceneManager.GetActiveScene().buildIndex - 1 );
+	}
+
+	private void OnRestart( GameObject sender, object data )
+	{
+		Debug.Log( "Game Manager : Game Restarting" );
+		SceneManager.LoadScene( SceneManager.GetActiveScene().buildIndex );
+	}
+
+	private void OnResumed( GameObject sender, object data )
+	{
+		Debug.Log( "Game Manager : Game is Resumed" );
+		Time.timeScale = 1.0f;
+	}
+
+	private void OnPaused( GameObject sender, object data )
+	{
+		Debug.Log( "Game Manager : Game is Paused" );
+		Time.timeScale = 0.0f;
+	}
+
+	public void SetTimeScale(float timeScale)
     {
         Time.timeScale = timeScale;
         Debug.Log($"Time Scale Set To {timeScale}");
     }
+
+	private void OnDisable()
+	{
+		GameDB.EventsIdentifier.Game_Paused.DisconnectEvent( gameObject );
+		GameDB.EventsIdentifier.Game_Resumed.DisconnectEvent( gameObject );
+		GameDB.EventsIdentifier.Game_Restart_Begin.DisconnectEvent( gameObject );
+		GameDB.EventsIdentifier.Game_ToBack.DisconnectEvent( gameObject );
+	}
 }

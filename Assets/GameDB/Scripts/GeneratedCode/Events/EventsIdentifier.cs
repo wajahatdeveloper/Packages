@@ -18,6 +18,8 @@ namespace GameDB
 		[Identifier("Toggle_Sound")] Toggle_Sound = 11,
 		[Identifier("Toggle_Music")] Toggle_Music = 12,
 		[Identifier("Toggle_Audio")] Toggle_Audio = 13,
+		[Identifier("Game_Restart_Begin")] Game_Restart_Begin = 14,
+		[Identifier("Game_ToBack")] Game_ToBack = 15,
 	}
 
 	public static class EventsIdentifierExtension
