@@ -6,28 +6,28 @@ using UnityEngine.UI;
 
 namespace UnityEngineX
 {
-	[RequireComponent(typeof(Button))]
-	public class ButtonX : MonoBehaviour , IPointerEnterHandler , IPointerExitHandler , IPointerDownHandler , IPointerUpHandler
+	[RequireComponent( typeof( Button ) )]
+	public class ButtonX : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 	{
-		[FoldoutGroup("Click Action")]
+		[FoldoutGroup( "Click Action" )]
 		public UnityEvent<ButtonX> OnClick;
 
 		[FoldoutGroup( "Click Sound" )] public bool clickSound;
 		[FoldoutGroup( "Click Sound" )] public string customSoundID = "custom";
 		[FoldoutGroup( "Click Sound" )] public bool useCustomSound;
-		[FoldoutGroup( "Click Sound" ) ,ShowIf(nameof(useCustomSound))] public AudioClip customSound;
+		[FoldoutGroup( "Click Sound" ), ShowIf( nameof( useCustomSound ) )] public AudioClip customSound;
 
-		[FoldoutGroup( "Click Events")] public UnityEvent<ButtonX> OnPointerDown;
-		[FoldoutGroup( "Click Events")] public UnityEvent<ButtonX> OnPointerUp;
-		[FoldoutGroup( "Click Events")] public UnityEvent<ButtonX> OnPointerEnter;
-		[FoldoutGroup( "Click Events")] public UnityEvent<ButtonX> OnPointerExit;
+		[FoldoutGroup( "Click Events" )] public UnityEvent<ButtonX> OnPointerDown;
+		[FoldoutGroup( "Click Events" )] public UnityEvent<ButtonX> OnPointerUp;
+		[FoldoutGroup( "Click Events" )] public UnityEvent<ButtonX> OnPointerEnter;
+		[FoldoutGroup( "Click Events" )] public UnityEvent<ButtonX> OnPointerExit;
 
 		public object Data
 		{
 			get => _data;
 			set => _data = value;
 		}
-		
+
 		public Button Button
 		{
 			get => _button;
@@ -39,32 +39,33 @@ namespace UnityEngineX
 
 		private void Start()
 		{
-			if (clickSound) { AudioController.AddToCategory(AudioController.GetCategory("SFX"), customSound , "Click" + customSoundID); }
+			if (clickSound) { AudioController.instance.AddSound( "Click" + customSoundID, customSound ); }
 			_button = GetComponent<Button>();
-			_button.onClick.AddListener( () => {
-				OnClick?.Invoke(this);
-				if (clickSound) { AudioController.Play(useCustomSound ? "Click" + customSoundID : "Click"); }
+			_button.onClick.AddListener( () =>
+			{
+				OnClick?.Invoke( this );
+				if (clickSound) { AudioController.instance.PlaySound( useCustomSound ? "Click" + customSoundID : "Click" ); }
 			} );
 		}
 
-		void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
+		void IPointerEnterHandler.OnPointerEnter( PointerEventData eventData )
 		{
-			OnPointerEnter?.Invoke(this);
+			OnPointerEnter?.Invoke( this );
 		}
 
-		void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
+		void IPointerExitHandler.OnPointerExit( PointerEventData eventData )
 		{
-			OnPointerExit?.Invoke(this);
+			OnPointerExit?.Invoke( this );
 		}
 
-		void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
+		void IPointerDownHandler.OnPointerDown( PointerEventData eventData )
 		{
-			OnPointerDown?.Invoke(this);
+			OnPointerDown?.Invoke( this );
 		}
 
-		void IPointerUpHandler.OnPointerUp(PointerEventData eventData)
+		void IPointerUpHandler.OnPointerUp( PointerEventData eventData )
 		{
-			OnPointerUp?.Invoke(this);
+			OnPointerUp?.Invoke( this );
 		}
 	}
 }

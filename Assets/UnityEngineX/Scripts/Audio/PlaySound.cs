@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PlaySound : MonoBehaviour
 {
-    public string soundId;
+	public string soundId;
 
-    public void PlaySFX(string id)
-    {
-        AudioController.Play(id);
-    }
+	public void PlaySFX( string id )
+	{
+		AudioController.instance.PlaySound( id );
+	}
 
-    public void PlaySFX_Default()
-    {
-        AudioController.Play(soundId);
-    }
+	public void PlaySFX_Default()
+	{
+		AudioController.instance.PlaySound( soundId );
+	}
 }
