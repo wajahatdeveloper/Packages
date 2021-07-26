@@ -26,6 +26,8 @@ public class ActivationSequence : MonoBehaviour
 
         sequence.OnSequenceEndReached += () => OnSequnceEnd?.Invoke();
         
+        sequence.Current.SetActive(false);
+        sequence.CurrentIndex = 0;
         sequence.Current.SetActive(true);
     }
 
