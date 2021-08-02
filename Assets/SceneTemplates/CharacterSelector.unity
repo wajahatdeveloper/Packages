@@ -180,6 +180,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114995894941984798, guid: fd520607fa32bd047b5b93b16e2b939d,
         type: 3}
+      propertyPath: DontDestroy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114995894941984798, guid: fd520607fa32bd047b5b93b16e2b939d,
+        type: 3}
       propertyPath: OnSelected.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -633,6 +638,55 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1896022728}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1896022730 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2449266329050622258, guid: 353951f5bf7108245be7d04cdb32e9de,
+    type: 3}
+  m_PrefabInstance: {fileID: 1896022728}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1896022731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896022730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c23a6d105e99e1d4e96c41dcca81ac69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1896022732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896022730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05a1deceaa260b64eb0ab119e331548b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventIdentifier: Clicked_Play
+  OnEventReceived:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1896022731}
+        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+        m_MethodName: GoToScene_Next
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnEventReceived_String:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &2237483566364844126
 PrefabInstance:
   m_ObjectHideFlags: 0

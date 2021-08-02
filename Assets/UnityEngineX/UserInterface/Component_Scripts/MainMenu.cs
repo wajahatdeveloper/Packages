@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : SingletonBehaviour<MainMenu>
 {
-    public int nextSceneIndex = 2;
+    public int nextSceneIndex = 4;
 
     private void OnEnable()
     {

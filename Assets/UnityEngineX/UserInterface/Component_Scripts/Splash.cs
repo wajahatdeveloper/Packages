@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Splash : SingletonBehaviour<Splash>
 {
     public float delayTillNextScene = 1.0f;
-    public int nextSceneIndex = 1;
+    public int nextSceneIndex = 3;
 
     private void Start()
     {
