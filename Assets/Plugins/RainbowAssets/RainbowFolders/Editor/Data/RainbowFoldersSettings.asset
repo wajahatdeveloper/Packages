@@ -154,7 +154,7 @@ MonoBehaviour:
     SmallIcon: {fileID: 0}
     LargeIcon: {fileID: 0}
     IsIconRecursive: 1
-    BackgroundType: 0
+    BackgroundType: 140
     BackgroundTexture: {fileID: 0}
     IsBackgroundRecursive: 1
   - Type: 0
@@ -406,9 +406,9 @@ MonoBehaviour:
     SmallIcon: {fileID: 2800000, guid: 2954bef266e6d794aba08ceacc887a0f, type: 3}
     LargeIcon: {fileID: 2800000, guid: ff4dfb29f203a174ab8e4c498afe908a, type: 3}
     IsIconRecursive: 0
-    BackgroundType: 0
+    BackgroundType: 80
     BackgroundTexture: {fileID: 0}
-    IsBackgroundRecursive: 0
+    IsBackgroundRecursive: 1
   - Type: 1
     Key: Assets/PhysicsMaterials
     IconType: 2090
@@ -430,6 +430,51 @@ MonoBehaviour:
   - Type: 1
     Key: Assets/SceneTemplates
     IconType: 2150
+    SmallIcon: {fileID: 0}
+    LargeIcon: {fileID: 0}
+    IsIconRecursive: 0
+    BackgroundType: 0
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 0
+  - Type: 1
+    Key: Assets/_GameAssets
+    IconType: 90
+    SmallIcon: {fileID: 0}
+    LargeIcon: {fileID: 0}
+    IsIconRecursive: 0
+    BackgroundType: 90
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 1
+  - Type: 1
+    Key: Assets/AssetSettings
+    IconType: 1
+    SmallIcon: {fileID: 2800000, guid: b35215edbf2534b4b8e6f04125b91f13, type: 3}
+    LargeIcon: {fileID: 2800000, guid: b35215edbf2534b4b8e6f04125b91f13, type: 3}
+    IsIconRecursive: 1
+    BackgroundType: 0
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 0
+  - Type: 1
+    Key: Assets/FeatureList
+    IconType: 1
+    SmallIcon: {fileID: 2800000, guid: 9572eb6a336aca547b7dce4a09fb9372, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9572eb6a336aca547b7dce4a09fb9372, type: 3}
+    IsIconRecursive: 1
+    BackgroundType: 0
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 0
+  - Type: 1
+    Key: Assets/Packs
+    IconType: 2110
+    SmallIcon: {fileID: 0}
+    LargeIcon: {fileID: 0}
+    IsIconRecursive: 0
+    BackgroundType: 50
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 1
+  - Type: 1
+    Key: Assets/Standard Assets
+    IconType: 2120
     SmallIcon: {fileID: 0}
     LargeIcon: {fileID: 0}
     IsIconRecursive: 0
