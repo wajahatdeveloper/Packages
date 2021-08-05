@@ -52,7 +52,7 @@ MonoBehaviour:
     sceneIgnoresFilters: []
     ignoreScenesInBuild: 1
     ignoreOnlyEnabledScenesInBuild: 1
-    findUnreferencedAssets: 1
+    findUnreferencedAssets: 0
     findUnreferencedScripts: 0
     findEmptyFolders: 0
     findEmptyFoldersAutomatically: 0

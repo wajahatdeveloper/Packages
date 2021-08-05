@@ -29,6 +29,7 @@ Scene Switcher - quick switch scenes
 Odin Inspector and Serializer - for enhanced editor scripting and object serialization
 Texture Packer Importer - for importing texture packer atlases
 AssetPresetPostprocessor - for setting folders to import assets using preset settings
+Quick Sheets - excel and google sheets support for Unity
 
 Packages:
 UIExtensions - Extensions for UGUI
