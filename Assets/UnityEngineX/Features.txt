@@ -30,6 +30,7 @@ Odin Inspector and Serializer - for enhanced editor scripting and object seriali
 Texture Packer Importer - for importing texture packer atlases
 AssetPresetPostprocessor - for setting folders to import assets using preset settings
 Quick Sheets - excel and google sheets support for Unity
+Selection Utility - Choice selection among multiple stacked objects
 
 Packages:
 UIExtensions - Extensions for UGUI
