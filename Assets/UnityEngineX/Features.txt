@@ -38,6 +38,7 @@ MyBox - Attributes and Extensions
 TextMeshPro - Mesh Text for 3D and UGUI
 Timeline - for Cutscenes
 UI Particle - for particle systems on UGUI
+Quck Search - for spot light style search functionality
 
 Custom Systems:
 Achievement System v1
