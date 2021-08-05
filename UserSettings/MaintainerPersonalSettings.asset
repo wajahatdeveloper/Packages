@@ -160,5 +160,5 @@ MonoBehaviour:
     splitterState: 
     selectedTab: 0
   selectedTab: 0
-  scroll: {x: 0, y: 154}
+  scroll: {x: 0, y: 0}
   version: 1.7.4
