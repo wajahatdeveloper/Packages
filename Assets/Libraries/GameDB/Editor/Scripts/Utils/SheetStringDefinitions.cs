@@ -6,15 +6,15 @@
         public const string SPLIT_STRING = ",";
         public const string IDENTIFIER_DEFAULT_VALUE = "None";
 
-        public const string BASE_CLASSES_DIRECTORY = "Assets/GameDB/Scripts/GeneratedCode/BaseClasses/";
-        public const string TEMPLATE_DIRECTORY = "Assets/GameDB/Editor/Templates/";
-        public const string MODEL_DIRECTORY = "Assets/GameDB/Scripts/GeneratedCode/";
-        public const string MODEL_DIRECTORY_BASE = "Assets/GameDB/Scripts/GeneratedCode";
-        public const string SCRIPTABLEOBJECT_DIRECTORY = "Assets/GameDB/Resources/ScriptableObjects/";
-        public const string MODELMANAGER_SCRIPTABLEOBJECT_DIRECTORY = "Assets/GameDB/Resources/ScriptableObjects/ModelManager.asset";
+        public const string BASE_CLASSES_DIRECTORY = "Assets/Libraries/GameDB/Scripts/GeneratedCode/BaseClasses/";
+        public const string TEMPLATE_DIRECTORY = "Assets/Libraries/GameDB/Editor/Templates/";
+        public const string MODEL_DIRECTORY = "Assets/Libraries/GameDB/Scripts/GeneratedCode/";
+        public const string MODEL_DIRECTORY_BASE = "Assets/Libraries/GameDB/Scripts/GeneratedCode";
+        public const string SCRIPTABLEOBJECT_DIRECTORY = "Assets/Libraries/GameDB/Resources/ScriptableObjects/";
+        public const string MODELMANAGER_SCRIPTABLEOBJECT_DIRECTORY = "Assets/Libraries/GameDB/Resources/ScriptableObjects/ModelManager.asset";
         public const string ASSEMBLY_LOCATION = ", Assembly-CSharp";
 
-        public const string TEXTURE_DIRECTORY = "Assets/GameDB/Editor/Textures/";
+        public const string TEXTURE_DIRECTORY = "Assets/Libraries/GameDB/Editor/Textures/";
         public const string DOTS_TEXTURE_FILE_NAME = "Dots.png";
         public const string COLLECTIONEDIT_TEXTURE_ICON_FILE_NAME = "CollectionEditIcon.png";
 
@@ -94,7 +94,7 @@
 
         public const string DATASHEET_LINE_LOOKUP = "[Identifier(\"{0}\")]";
 
-        public const string FILE_LOCATION_TARGET_DATASHEET = "Assets/GameDB/Editor/SheetCodesJson.txt";
+        public const string FILE_LOCATION_TARGET_DATASHEET = "Assets/Libraries/GameDB/Editor/SheetCodesJson.txt";
 
         public const string NAMESPACE = "GameDB";
         public const string NAMESPACE_EDITOR = "SheetCodesEditor";
