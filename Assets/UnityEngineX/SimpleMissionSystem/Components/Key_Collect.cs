@@ -10,7 +10,7 @@ public class Key_Collect : MonoBehaviour
 
     private void Start()
     {
-        _thisMission = SimpleMission.missionList[missionName];
+        _thisMission = SimpleMissionManager.instance.missionList[missionName];
     }
 
     private void OnDestroy()

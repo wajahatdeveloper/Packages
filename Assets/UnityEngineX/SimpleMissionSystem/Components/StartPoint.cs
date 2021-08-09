@@ -16,12 +16,12 @@ public class StartPoint : MonoBehaviour
         {
             PlayerTransform.position = transform.position;
             PlayerTransform.rotation = transform.rotation;
-            SimpleMission.CurrentPlayerInstance = PlayerTransform;
+            SimpleMissionManager.instance.CurrentPlayerInstance = PlayerTransform;
         }
         else if (spawnOnStart)
         {
             var player = Instantiate(playerPrefab, transform.position, transform.rotation);
-            SimpleMission.CurrentPlayerInstance = player.transform;
+            SimpleMissionManager.instance.CurrentPlayerInstance = player.transform;
         }
     }
 }

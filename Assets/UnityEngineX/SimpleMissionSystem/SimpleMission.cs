@@ -14,42 +14,6 @@ public enum MissionType
 
 public class SimpleMission : MonoBehaviour
 {
-    #region Static
-
-    public static SimpleMission CurrentMission
-    {
-        get => _currentMission;
-        set
-        {
-            ConsoleProDebug.LogToFilter(
-                value == null
-                    ? $"Simple Missions : Current Mission Set To => Null"
-                    : $"Simple Missions : Current Mission Set To => {value.name}", "Missions");
-            _currentMission = value;
-        }
-    }
-
-    private static SimpleMission _currentMission = null;
-
-    public static Transform CurrentPlayerInstance
-    {
-        get => _currentPlayerInstance;
-        set
-        {
-            ConsoleProDebug.LogToFilter(
-                value == null
-                    ? $"Simple Missions : Player Instance Set To => Null"
-                    : $"Simple Missions : Player Instance Set To => {value.name}", "Missions");
-            _currentPlayerInstance = value;
-        }
-    }
-
-    private static Transform _currentPlayerInstance = null;
-
-    public static Dictionary<string, SimpleMission> missionList;
-    
-    #endregion
-    
     public string missionName;
     [Multiline] public string missionStatement;
     public MissionType missionType;
@@ -99,8 +63,10 @@ public class SimpleMission : MonoBehaviour
 
     public void StartMission()
     {
-        CurrentMission = this;
-     
+        SimpleMissionManager.instance.CurrentMission = this;
+        
+        SimpleMissionManager.instance.missionList.AddIfNotExists(missionName,this);
+        
         startPoint.MissionStart();
         
         OnMissionStart?.Invoke();
