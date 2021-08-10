@@ -9,6 +9,7 @@ using Sirenix.Utilities;
 using Sirenix.Utilities.Editor;
 using Sirenix.OdinInspector.Editor;
 using UnityEditor;
+#pragma warning disable 618
 
 #endif
 

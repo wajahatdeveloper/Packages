@@ -8,6 +8,8 @@ using Sirenix.Utilities.Editor;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
+#pragma warning disable 252,253
+#pragma warning disable 618
 
 public class OdinWatchWindow : OdinEditorWindow
 {
@@ -35,7 +37,8 @@ public class OdinWatchWindow : OdinEditorWindow
 			{
 				ShowMenu();
 				PropertyTree tree = Sirenix.OdinInspector.Editor.PropertyTree.Create(new SerializedObject(property.serializedObject.targetObject));
-				TreeValuesHolder holder = _instance._properties.FirstOrDefault(o => o.Tree.WeakTargets[0] == property.serializedObject.targetObject);
+				TreeValuesHolder holder = _instance._properties.FirstOrDefault(o =>
+					o.Tree.WeakTargets[0] == property.serializedObject.targetObject);
 				if (holder == null)
 				{
 					holder = new TreeValuesHolder(tree);
