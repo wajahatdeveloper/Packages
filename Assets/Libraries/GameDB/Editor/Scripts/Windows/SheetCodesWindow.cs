@@ -2,9 +2,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using Sirenix.OdinInspector;
+using Sirenix.OdinInspector.Editor;
+using Sirenix.OdinInspector.Editor.Drawers;
+using Sirenix.Utilities;
+using Sirenix.Utilities.Editor;
+using Sisus;
 using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEngine;
+using MouseCursor = UnityEditor.MouseCursor;
+
 #pragma warning disable 108,114
 
 namespace SheetCodesEditor
@@ -1175,7 +1184,9 @@ namespace SheetCodesEditor
 
                 EditorGUI.LabelField(rowCellDrawData.cellRect, text, GUI.skin.textField);
                 if (IsOverflowing(text, rowCellDrawData.cellRect))
+                {
                     GUI.DrawTexture(rowCellDrawData.iconRect, dots);
+                }
             }
         }
 
@@ -1423,7 +1434,10 @@ namespace SheetCodesEditor
             buttonRect.x += buttonRect.width + 2;
             buttonRect.y += 2;
             buttonRect.width = 120;
-            isShowingEnumIndex = GUI.Toggle(buttonRect, isShowingEnumIndex, Localization.SHOW_ENUM_VALUE);
+            var cc = GUI.contentColor;
+            GUI.contentColor = Color.black;
+            isShowingEnumIndex = GUI.Toggle(buttonRect, isShowingEnumIndex, Localization.SHOW_ENUM_VALUE );
+            GUI.contentColor = cc;
 
             taskbarRect = new Rect(0, taskbarRect.height - 1, position.width, 1);
             EditorGUI.DrawRect(taskbarRect, new Color(0.65f, 0.65f, 0.65f));
@@ -1460,8 +1474,12 @@ namespace SheetCodesEditor
 
             buttonRect.x += buttonRect.width + 2;
             buttonRect.width = 120;
+            
+            var cc = GUI.contentColor;
+            GUI.contentColor = Color.black;
             isShowingEnumIndex = GUI.Toggle(buttonRect, isShowingEnumIndex, Localization.SHOW_ENUM_VALUE);
-
+            GUI.contentColor = cc;
+            
             taskbarRect = new Rect(0, taskbarRect.height - 1, position.width, 1);
             EditorGUI.DrawRect(taskbarRect, new Color(0.65f, 0.65f, 0.65f));
         }
@@ -1478,8 +1496,8 @@ namespace SheetCodesEditor
 
             SaveWindowSettings();
 
-            forceClosed = true;
-            Close();
+            //forceClosed = true;
+            //Close();
         }
 
         private void DrawButtonRow_AddRow(Rect buttonRect)
@@ -1885,7 +1903,9 @@ namespace SheetCodesEditor
             {
                 guiStyle = new GUIStyle(guiStyle);
                 if (selected)
+                {
                     guiStyle.normal.background = guiStyle.focused.background;
+                }
             }
             GUI.Label(drawRect, result, guiStyle);
             return data;
@@ -1947,7 +1967,9 @@ namespace SheetCodesEditor
             string[] originalOptions = pageData.sheetPage.rows.Select(i => i.identifier).Prepend(SheetStringDefinitions.IDENTIFIER_DEFAULT_VALUE).ToArray();
             string[] options = new string[originalOptions.Length];
             for (int i = 0; i < options.Length; i++)
+            {
                 options[i] = originalOptions[i].Replace('/', '\u2215');
+            }
 
             int currentOption = Array.IndexOf(originalOptions, data);
             int selectedOption = EditorGUI.Popup(drawRect, currentOption, options);

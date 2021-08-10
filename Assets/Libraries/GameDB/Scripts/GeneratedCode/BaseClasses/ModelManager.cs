@@ -45,6 +45,25 @@ namespace GameDB
                         }
                         break;
                     }
+                case DatasheetType.A:
+                    {
+                        if (aModel == null || aModel.Equals(null))
+                        {
+                            Log(string.Format("Sheet Codes: Trying to unload model {0}. Model is not loaded.", datasheetType));
+                            break;
+                        }
+                        Resources.UnloadAsset(aModel);
+                        aModel = null;
+                        LoadRequest request;
+                        if (loadRequests.TryGetValue(DatasheetType.A, out request))
+                        {
+                            loadRequests.Remove(DatasheetType.A);
+                            request.resourceRequest.completed -= OnLoadCompleted_AModel;
+							foreach (Action<bool> callback in request.callbacks)
+								callback(false);
+                        }
+                        break;
+                    }
                 default:
                     break;
             }
@@ -69,6 +88,26 @@ namespace GameDB
                             Log(string.Format("Sheet Codes: Trying to initialize {0} while also async loading. Async load has been canceled.", datasheetType));
                             loadRequests.Remove(DatasheetType.Events);
                             request.resourceRequest.completed -= OnLoadCompleted_EventsModel;
+							foreach (Action<bool> callback in request.callbacks)
+								callback(true);
+                        }
+                        break;
+                    }
+                case DatasheetType.A:
+                    {
+                        if (aModel != null && !aModel.Equals(null))
+                        {
+                            Log(string.Format("Sheet Codes: Trying to Initialize {0}. Model is already initialized.", datasheetType));
+                            break;
+                        }
+
+                        aModel = Resources.Load<AModel>("ScriptableObjects/A");
+                        LoadRequest request;
+                        if (loadRequests.TryGetValue(DatasheetType.A, out request))
+                        {
+                            Log(string.Format("Sheet Codes: Trying to initialize {0} while also async loading. Async load has been canceled.", datasheetType));
+                            loadRequests.Remove(DatasheetType.A);
+                            request.resourceRequest.completed -= OnLoadCompleted_AModel;
 							foreach (Action<bool> callback in request.callbacks)
 								callback(true);
                         }
@@ -101,6 +140,24 @@ namespace GameDB
                         request.completed += OnLoadCompleted_EventsModel;
                         break;
                     }
+                case DatasheetType.A:
+                    {
+                        if (aModel != null && !aModel.Equals(null))
+                        {
+                            Log(string.Format("Sheet Codes: Trying to InitializeAsync {0}. Model is already initialized.", datasheetType));
+                            callback(true);
+                            break;
+                        }
+                        if(loadRequests.ContainsKey(DatasheetType.A))
+                        {
+                            loadRequests[DatasheetType.A].callbacks.Add(callback);
+                            break;
+                        }
+                        ResourceRequest request = Resources.LoadAsync<AModel>("ScriptableObjects/A");
+                        loadRequests.Add(DatasheetType.A, new LoadRequest(request, callback));
+                        request.completed += OnLoadCompleted_AModel;
+                        break;
+                    }
                 default:
                     break;
             }
@@ -125,6 +182,27 @@ namespace GameDB
                     Initialize(DatasheetType.Events);
 
                 return eventsModel;
+            }
+        }
+        private static void OnLoadCompleted_AModel(AsyncOperation operation)
+        {
+            LoadRequest request = loadRequests[DatasheetType.A];
+            aModel = request.resourceRequest.asset as AModel;
+            loadRequests.Remove(DatasheetType.A);
+            operation.completed -= OnLoadCompleted_AModel;
+            foreach (Action<bool> callback in request.callbacks)
+                callback(true);
+        }
+
+		private static AModel aModel = default;
+		public static AModel AModel
+        {
+            get
+            {
+                if (aModel == null)
+                    Initialize(DatasheetType.A);
+
+                return aModel;
             }
         }
 		
