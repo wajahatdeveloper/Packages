@@ -30,7 +30,7 @@ public class CharacterSelection : RuleBehaviour
 		// ------------------- Rule 2 -------------------
 		// Save Name of Selected Character to Persistent Data store
 		PlayerPrefs.SetString(Constants.SELECTED_CHARACTER_ID,selectedObject.name);
-		Debug.Log("Character Selection: Selected Character " + selectedObject.name);
+		Debug.Log("Character Selection: Selected Character is " + selectedObject.name);
 	}
 	
 	// ------------------- Rule 3 -------------------
