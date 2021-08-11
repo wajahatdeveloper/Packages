@@ -1,6 +1,7 @@
 ﻿#if ODIN_INSPECTOR
 using JetBrains.Annotations;
 using Sisus.Attributes;
+#pragma warning disable 618
 
 namespace Sisus.Compatibility
 {

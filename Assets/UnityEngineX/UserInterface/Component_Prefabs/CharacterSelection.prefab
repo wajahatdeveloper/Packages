@@ -43,3 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 606e54119a0aed146a793f0894da9d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rulesOverview:
+  - Goto Next Scene when Play Button is Clicked
+  dataModelVariables: {fileID: 0}

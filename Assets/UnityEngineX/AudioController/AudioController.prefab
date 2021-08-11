@@ -44,6 +44,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028c114591720564dbad7e65f08ae689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundObject: {fileID: 5294798469378262191, guid: 654d34970a01a1b47be889e2c0e73d73,
+    type: 3}
+  musicObject: {fileID: 5294798469378262191, guid: b8e71e9d235ca3b4f92f3a7ca33419c6,
+    type: 3}
+  soundMixer: {fileID: 24100000, guid: f3b02ea4f8638ac408ab1c464e8a094f, type: 2}
+  musicMixer: {fileID: 24100000, guid: 97886574eb85f1b40912536819674fce, type: 2}
+  sounds:
+  - name: Click
+    clip: {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
+  musics: []
 --- !u!114 &1591555412604330403
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -230,6 +230,10 @@ namespace MalbersAnimations.Selector
 
             if (ItemSelected)
             {
+                if (ItemSelected.originalItem == null)
+                {
+                    ItemSelected.originalItem = item.gameObject;
+                }
                 OriginalItemSelected = ItemSelected.OriginalItem;
             }
         }
@@ -470,8 +474,15 @@ namespace MalbersAnimations.Selector
 
             if (!ItemSelected.Locked && ItemSelected.Amount > 0)                //If the items is not locked and the we have one or More Item ....
             {
-                if (InstantiateItems) InstantiateItem();
-                OnSelected.Invoke(Last_SpawnedItem);
+                if (InstantiateItems)
+                {
+                    InstantiateItem();
+                    OnSelected.Invoke(Last_SpawnedItem);
+                }
+                else
+                {
+                    OnSelected.Invoke(ItemSelected.originalItem);
+                }
                 Controller.CurrentItem.OnSelected.Invoke();                     //Invoke Events on the Selected Item
             }
 

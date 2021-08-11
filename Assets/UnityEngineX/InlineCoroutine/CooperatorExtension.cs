@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace AsCoroutine
+namespace InlineCoroutine
 {
     public static partial class CooperatorExtension
     {
-        public static Cooperator AsCoroutine(this object monoBehaviour)
+        public static Cooperator InlineCoroutine(this object monoBehaviour)
         {
             return new Cooperator(null);
         }

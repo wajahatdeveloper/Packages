@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Initialization : MonoBehaviour 
+public class Initialization : RuleBehaviour 
 {
     private void Start()
     {
-        SceneManager.LoadScene(1);
+        SceneManagerX.LoadNextScene();
     }
 }

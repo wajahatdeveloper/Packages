@@ -2,11 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Sirenix.Serialization;
 using Lean.Pool;
 using System.Linq;
-using Sirenix.OdinInspector;
-using AsCoroutine;
 using UnityEngine.Audio;
 
 [System.Serializable]
@@ -18,12 +15,12 @@ public class AudioItem
 
 public class AudioController :SingletonBehaviour<AudioController>
 {
-	[ShowInInspector]private GameObject soundObject;
-	[ShowInInspector]private GameObject musicObject;
-	[ShowInInspector]private AudioMixer soundMixer;
-	[ShowInInspector]private AudioMixer musicMixer;
-	[ShowInInspector]private List<AudioItem> sounds = new List<AudioItem>();
-	[ShowInInspector]private List<AudioItem> musics = new List<AudioItem>();
+	[SerializeField]private GameObject soundObject;
+	[SerializeField]private GameObject musicObject;
+	[SerializeField]private AudioMixer soundMixer;
+	[SerializeField]private AudioMixer musicMixer;
+	[SerializeField]private List<AudioItem> sounds = new List<AudioItem>();
+	[SerializeField]private List<AudioItem> musics = new List<AudioItem>();
 	private LeanGameObjectPool soundPool;
 
 	private void Start()
