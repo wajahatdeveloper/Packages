@@ -1,0 +1,17 @@
+{
+    "name": "Feature.Authentication",
+    "rootNamespace": "",
+    "references": [
+        "GUID:978eb9b3ce8f0fb4b8bf2227fa017bd0",
+        "GUID:5943d2f87adf6bb43bc728eb111cd6ed"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
