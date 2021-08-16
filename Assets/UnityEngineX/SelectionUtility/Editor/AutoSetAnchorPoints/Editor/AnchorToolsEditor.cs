@@ -7,20 +7,20 @@ public class AnchorToolsEditor : EditorWindow
 {
     static AnchorToolsEditor()
     {
-        SceneView.duringSceneGui += OnScene;
+        //SceneView.duringSceneGui += OnScene;
     }
 
-    private static void OnScene( SceneView sceneview )
-    {
-        if (Event.current.type == EventType.MouseUp && Event.current.button == 1)
-        {
-            UpdateAnchors();
-        }
-    }
+    // private static void OnScene( SceneView sceneview )
+    // {
+    //     if (Event.current.type == EventType.MouseUp && Event.current.button == 0 && Event.current.control == true)
+    //     {
+    //         UpdateAnchors();
+    //     }
+    // }
 
     public void OnDestroy()
     {
-        SceneView.duringSceneGui -= OnScene;
+        //SceneView.duringSceneGui -= OnScene;
     }
 
     static public Rect anchorRect;

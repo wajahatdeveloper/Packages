@@ -7,7 +7,7 @@ using UnityEngineX;
 
 [System.Serializable] public class EconomyEvent : QuickEvent<string> { }
 
-public class EconomyManager : SingletonBehaviour<EconomyManager>
+public class EconomySystem : SingletonBehaviour<EconomySystem>
 {
 	public List<string> typesOfEnonomies;
 	[Space(16)]

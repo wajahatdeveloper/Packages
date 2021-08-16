@@ -129,6 +129,14 @@ namespace Nementic.SelectionUtility
 			// Account for the 1px gray border at the top of the window.
 			rect.yMin += 1;
 
+			if (GUILayout.Button("UpdateAnchors"))
+			{
+				AnchorToolsEditor.UpdateAnchors();
+			}
+			
+			// compensate for update anchors button height
+			rect.yMin += 20;
+
 			rect = dataSource.DrawFilterModes(rect, RowHeight);
 			rect = dataSource.SearchFieldGUI(rect, RowHeight);
 
@@ -285,6 +293,9 @@ namespace Nementic.SelectionUtility
 		{
 			float totalHeight = 0;
 
+			// Anchor Update Button
+			totalHeight += 40;
+			
 			if (UserPrefs.ShowSearchField)
 				totalHeight += RowHeight + 2;
 

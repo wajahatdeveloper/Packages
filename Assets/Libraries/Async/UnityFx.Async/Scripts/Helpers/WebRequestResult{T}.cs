@@ -178,7 +178,7 @@ namespace UnityFx.Async.Helpers
 #if UNITY_5
 				if (_request.isError)
 #else
-				if (_request.isHttpError || _request.isNetworkError)
+				if (_request.result == UnityWebRequest.Result.ProtocolError || _request.result == UnityWebRequest.Result.ConnectionError)
 #endif
 				{
 					throw new WebRequestException(_request.error, _request.responseCode);

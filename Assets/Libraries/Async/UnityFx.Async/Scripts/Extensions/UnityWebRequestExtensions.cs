@@ -90,7 +90,7 @@ namespace UnityFx.Async.Extensions
 #if UNITY_5
 				if (request.isError)
 #else
-				if (request.isHttpError || request.isNetworkError)
+				if (request.result == UnityWebRequest.Result.ProtocolError || request.result == UnityWebRequest.Result.ConnectionError)
 #endif
 				{
 					tcs.TrySetException(new WebRequestException(request.error, request.responseCode));

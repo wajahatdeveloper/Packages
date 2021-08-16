@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5506244535444687546
+--- !u!1 &4802222556822453856
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,54 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5506244535444687544}
-  - component: {fileID: 5506244535444687547}
+  - component: {fileID: 4802222556822453854}
+  - component: {fileID: 4802222556822453857}
   m_Layer: 0
-  m_Name: BuildManager
+  m_Name: EconomySystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5506244535444687544
+--- !u!4 &4802222556822453854
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5506244535444687546}
+  m_GameObject: {fileID: 4802222556822453856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 645.9732, y: 364.93115, z: -105.625}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5506244535444687547
+--- !u!114 &4802222556822453857
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5506244535444687546}
+  m_GameObject: {fileID: 4802222556822453856}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 687296b219fda8243b12156705c27414, type: 3}
+  m_Script: {fileID: 11500000, guid: d9b53b542caf40746bb6d374b9da1158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildNumber: {x: 0, y: 0, z: 0, w: 0}
+  typesOfEnonomies:
+  - Score
+  - Money
+  - Diamonds
+  onEconomyIncrease:
+    inspectorListHeight: 63
+    persistentCalls:
+      calls: []
+  onEconomyDecrease:
+    inspectorListHeight: 63
+    persistentCalls:
+      calls: []
+  onEconomyChange:
+    inspectorListHeight: 63
+    persistentCalls:
+      calls: []

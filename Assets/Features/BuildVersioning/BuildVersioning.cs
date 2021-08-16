@@ -1,4 +1,5 @@
 ﻿using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 #if UNITY_EDITOR
@@ -7,21 +8,25 @@ using UnityEngine;
 
 namespace UnityEngineX
 {
-    public class BuildManager : MonoBehaviour
+    [HideMonoScript]
+    public class BuildVersioning : MonoBehaviour
     {
 #if UNITY_EDITOR
-        public Vector4 buildNumber = Vector4.zero;
+        [HorizontalGroup("Group"),HideLabel] public int majorVersion;
+        [HorizontalGroup("Group"),HideLabel] public int minorVersion;
+        [HorizontalGroup("Group"),HideLabel] public int revisionVersion;
+        [HorizontalGroup("Group"),HideLabel] public int buildVersion;
 
         private void OnValidate()
         {
-            if (buildNumber == Vector4.zero) return;
-            var bundleVersion = $"{buildNumber.x}.{buildNumber.y}.{buildNumber.z}.{buildNumber.w}";
+            if (majorVersion == 0 && minorVersion == 0 && revisionVersion == 0 && buildVersion == 0) { return; }
+            var bundleVersion = $"{majorVersion}.{minorVersion}.{revisionVersion}.{buildVersion}";
             if (PlayerSettings.bundleVersion == bundleVersion) return;
             PlayerSettings.bundleVersion = bundleVersion;
             Debug.Log("Version Changed to " + PlayerSettings.bundleVersion);
         }
 #endif
-
+        
         public string StoredBuildVersion
         {
             set => PlayerPrefs.SetString("buildVersion", value);
