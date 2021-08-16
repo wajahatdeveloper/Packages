@@ -58,6 +58,7 @@ namespace RobustFSM.Base
         /// </summary>
         public virtual void Enter()
         {
+            UnityEngine.Debug.Log(Machine.MachineName + ":Enter(" + StateName + ") State");
 #if Verbose
             Console.WriteLine(Machine.MachineName + ":Enter(" + StateName + ") State");
 #endif
@@ -73,6 +74,7 @@ namespace RobustFSM.Base
         /// </summary>
         public virtual void Exit()
         {
+            UnityEngine.Debug.Log(Machine.MachineName + ":Exit(" + StateName + ") State");
 #if Verbose
             Console.WriteLine(Machine.MachineName + ":Exit(" + StateName + ") State");
 #endif

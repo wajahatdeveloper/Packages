@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
@@ -134,7 +134,7 @@ namespace RobustFSM.Base
         /// Add the state to the FSM
         /// </summary>
         /// <typeparam name="T">state type</typeparam>
-        public virtual void AddState<T>() where T : IState, new()
+        public virtual void AddState<T>() where T : MonoBehaviour, IState, new()
         {
             if (!ContainsState<T>())
             {

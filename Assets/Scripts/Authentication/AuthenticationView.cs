@@ -7,14 +7,14 @@ public class AuthenticationView : MonoBehaviour
 {
     [Header("Login UI")]
     public GameObject loginPanel;
-    public GameObject showLoginPanelButton;
+    public Button showLoginPanelButton;
     public Button doLoginButton;
     public InputField loginIdInputField;
     public InputField loginPasswordInputField;
     
     [Header("Signup UI")]
     public GameObject signupPanel;
-    public GameObject showSignupPanelButton;
+    public Button showSignupPanelButton;
     public Button doSignupButton;
     public InputField signupIdInputField;
     public InputField signupPasswordInputField;

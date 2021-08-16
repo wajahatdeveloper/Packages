@@ -1,26 +1,39 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using MEC;
 using RobustFSM.Base;
+using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityFx.Async;
+using UnityFx.Async.Promises;
 
-public class Authentication_Signup : BState
+public class Authentication_Signup : MonoRuleState
 {
-    private AuthenticationView _view = AuthenticationRoot.instance.view;
-    private AuthenticationModel _model = AuthenticationRoot.instance.controller.model;
+    private AuthenticationView _view;
+    private AuthenticationModel _model;
+
+    private void InitiaizeReferences()
+    {
+        _view = AuthenticationRoot.instance.view;
+        _model = AuthenticationRoot.instance.controller.model;
+    }
 
     public override void Enter()
     {
+        InitiaizeReferences();
         base.Enter();
         // Rule: show signup panel when in signup state
         _view.signupPanel.SetActive(true);
-        _view.showSignupPanelButton.SetActive(false);
-        _view.doSignupButton.onClick.AddListener(OnClick_DoSignup);
-        _view.loginIdInputField.onEndEdit.AddListener(OnSubmit_SignupId);
-        _view.loginIdInputField.onEndEdit.AddListener(OnSubmit_SignupPassword);
-        _view.loginIdInputField.onEndEdit.AddListener(OnSubmit_SignupPasswordConfirm);
     }
 
-    private void OnSubmit_SignupPasswordConfirm(string text)
+    public void OnClick_ShowLoginPanel()
+    {
+        AuthenticationRoot.instance.controller.ChangeState<Authentication_Login>();
+    }
+    
+    public void OnSubmit_SignupPasswordConfirm(string text)
     {
         if (_model.signupPassword.Equals(_model.signupPasswordConfirm))
         {
@@ -32,11 +45,11 @@ public class Authentication_Signup : BState
         }
     }
 
-    private void OnSubmit_SignupPassword(string text)
+    public void OnSubmit_SignupPassword(string text)
     {
     }
 
-    private void OnSubmit_SignupId(string text)
+    public void OnSubmit_SignupId(string text)
     {
     }
 
@@ -45,25 +58,43 @@ public class Authentication_Signup : BState
         base.Exit();
         // Rule: hide signup panel when leaving signup state
         _view.signupPanel.SetActive(false);
-        _view.showSignupPanelButton.SetActive(true);
-        _view.doSignupButton.onClick.RemoveListener(OnClick_DoSignup);
-        _view.loginIdInputField.onEndEdit.RemoveListener(OnSubmit_SignupId);
-        _view.loginIdInputField.onEndEdit.RemoveListener(OnSubmit_SignupPassword);
-        _view.loginIdInputField.onEndEdit.RemoveListener(OnSubmit_SignupPasswordConfirm);
     }
     
-    private void OnClick_DoSignup()
+    public void OnClick_DoSignup()
     {
-        bool success = false;
-        // API Call Here
+        DoSignupApiCall(_model.signupApiUrl)
+            .Then(text =>
+            {
+                Signup_Success();
+                Debug.Log(text);
+            })
+            .Catch(e =>
+            {
+                Signup_Failed();
+                Debug.LogException(e);
+            });
+    }
+    
+    public IAsyncOperation<string> DoSignupApiCall(string url)
+    {
+        var result = new AsyncCompletionSource<string>();
+        Timing.RunCoroutine(_InternalApiCall(url, result));
+        return result;
+    }
 
-        if (success)
+    private IEnumerator<float> _InternalApiCall(string url, IAsyncCompletionSource<string> op)
+    {
+        var www = UnityWebRequest.Get(url);
+        yield return Timing.WaitUntilDone(www.SendWebRequest());
+
+        if (www.result == UnityWebRequest.Result.ConnectionError ||
+            www.result == UnityWebRequest.Result.ProtocolError)
         {
-            Signup_Success();
+            op.SetException(new Exception(www.error));
         }
         else
         {
-            Signup_Failed();
+            op.SetResult(www.downloadHandler.text);
         }
     }
 

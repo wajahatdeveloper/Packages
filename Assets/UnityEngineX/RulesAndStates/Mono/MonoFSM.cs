@@ -188,10 +188,25 @@ namespace Assets.RobustFSM.Mono
         /// Adds a state to this instance
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        public void AddState<T>() where T : IState, new()
+        public void AddState<T>() where T : MonoBehaviour, IState, new()
         {
             //add the state
-            _fsm.AddState<T>();
+            if (typeof(T) == typeof(MonoBehaviour))
+            {
+                if (!ContainsState<T>())
+                {
+                    //create new state 
+                    IState item = GetComponentInChildren<T>();
+                    item.SuperMachine = this;
+
+                    //add state to dictionary
+                    States.Add(typeof(T), item);
+                }
+            }
+            else
+            {
+                _fsm.AddState<T>();
+            }
         }
 
         /// <summary>

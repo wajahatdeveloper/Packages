@@ -4,30 +4,22 @@ using RobustFSM.Base;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Authentication_Initialize : BState
+public class Authentication_Initialize : MonoRuleState
 {
-    private AuthenticationView _view = AuthenticationRoot.instance.view;
+    private AuthenticationView _view;
+    private AuthenticationModel _model;
+
+    private void InitiaizeReferences()
+    {
+        _view = AuthenticationRoot.instance.view;
+        _model = AuthenticationRoot.instance.controller.model;
+    }
     
     public override void Enter()
     {
+        InitiaizeReferences();
         base.Enter();
         // Rule: By default show login panel at start
-        _view.loginPanel.SetActive(true);
-        // Rule: Hook show login panel button
-        var showLoginPanelButton = _view.showLoginPanelButton.GetComponent<Button>();
-        showLoginPanelButton.onClick.AddListener(OnClick_ShowLoginPanel);
-        // Rule: Hook show signup panel button
-        var showSignupPanelButton = _view.showSignupPanelButton.GetComponent<Button>();
-        showSignupPanelButton.onClick.AddListener(OnClick_ShowSignupPanel);
-    }
-
-    public void OnClick_ShowLoginPanel()
-    {
-        AuthenticationRoot.instance.controller.SetCurrentState<Authentication_Login>();
-    }
-
-    public void OnClick_ShowSignupPanel()
-    {
-        AuthenticationRoot.instance.controller.SetCurrentState<Authentication_Signup>();
+        AuthenticationRoot.instance.controller.ChangeState<Authentication_Login>();
     }
 }

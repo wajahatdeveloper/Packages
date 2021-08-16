@@ -7,29 +7,38 @@ using UnityFx.Async;            // Library core.
 using UnityFx.Async.Extensions; // BCL/Unity extension methods.
 using UnityFx.Async.Promises;   // Promise extensions.
 using MEC;
+using Sirenix.OdinInspector;
 using UnityEngine.Networking;
 
-public class Authentication_Login : BState
+public class Authentication_Login : MonoRuleState
 {
-    private AuthenticationView _view = AuthenticationRoot.instance.view;
-    private AuthenticationModel _model = AuthenticationRoot.instance.controller.model;
+    private AuthenticationView _view;
+    private AuthenticationModel _model;
+
+    private void InitiaizeReferences()
+    {
+        _view = AuthenticationRoot.instance.view;
+        _model = AuthenticationRoot.instance.controller.model;
+    }
 
     public override void Enter()
     {
+        InitiaizeReferences();
         base.Enter();
         // Rule: show login panel when in login state
         _view.loginPanel.SetActive(true);
-        _view.showLoginPanelButton.SetActive(false);
-        _view.doLoginButton.onClick.AddListener(OnClick_DoLogin);
-        _view.loginIdInputField.onEndEdit.AddListener(OnSubmit_LoginId);
-        _view.loginIdInputField.onEndEdit.AddListener(OnSubmit_LoginPassword);
     }
 
-    private void OnSubmit_LoginId(string text)
+    public void OnClick_ShowSignupPanel()
+    {
+        AuthenticationRoot.instance.controller.ChangeState<Authentication_Signup>();
+    }
+    
+    public void OnSubmit_LoginId(string text)
     {
     }
     
-    private void OnSubmit_LoginPassword(string text)
+    public void OnSubmit_LoginPassword(string text)
     {
     }
 
@@ -38,13 +47,9 @@ public class Authentication_Login : BState
         base.Exit();
         // Rule: hide login panel when leaving login state
         _view.loginPanel.SetActive(false);
-        _view.showLoginPanelButton.SetActive(true);
-        _view.doLoginButton.onClick.RemoveListener(OnClick_DoLogin);
-        _view.loginIdInputField.onEndEdit.RemoveListener(OnSubmit_LoginId);
-        _view.loginIdInputField.onEndEdit.RemoveListener(OnSubmit_LoginPassword);
     }
 
-    private void OnClick_DoLogin()
+    public void OnClick_DoLogin()
     {
         DoLoginApiCall(_model.loginApiUrl)
             .Then(text =>

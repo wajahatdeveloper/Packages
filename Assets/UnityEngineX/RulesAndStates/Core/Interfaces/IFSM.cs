@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace RobustFSM.Interfaces
 {
@@ -97,7 +98,7 @@ namespace RobustFSM.Interfaces
         /// Adds a state to the state machine
         /// </summary>
         /// <typeparam name="T">type of state</typeparam>
-        void AddState<T>() where T : IState, new();
+        void AddState<T>() where T : MonoBehaviour, IState, new();
 
         /// <summary>
         /// Changes the executing state to the specified one

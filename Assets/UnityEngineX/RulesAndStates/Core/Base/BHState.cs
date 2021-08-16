@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using RobustFSM.Interfaces;
 using Assets.RobustFSM.Interfaces;
+using UnityEngine;
 
 namespace RobustFSM.Base
 {
@@ -144,7 +145,7 @@ namespace RobustFSM.Base
         /// Adds a state to this instance
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        public void AddState<T>() where T : IState, new()
+        public void AddState<T>() where T : MonoBehaviour, IState, new()
         {
             //add the state
             _fsm.AddState<T>();
