@@ -11,6 +11,10 @@ Almost Engine (simple localization) - localization support
 Sheet Codes - support for Scriptable Object based centeralized database
 Super Scroll View - Scroll View Templates
 Robust FSM - State Machine
+Async:
+    Thread Ninja - Multithreaded Coroutine Support
+    More Effective Coroutines - Standalone Global Coroutines
+    UnityFx.Async - Tasks and Promises for Unity
 
 Editor:
 Quick Events - enchanced Unity Events with multiple component and argument support

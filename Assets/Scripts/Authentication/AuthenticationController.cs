@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class AuthenticationController : RuleBehaviourFSM
 {
     public AuthenticationModel model;
-
+    
     public override void AddStates()
     {
         // set custom update frequency
