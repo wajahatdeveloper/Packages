@@ -213,6 +213,7 @@ namespace EnhancedHierarchy {
 
                 var rowTint = GetRowTint();
                 var rowCustomTint = GetRowCustomTint();
+                var rowCustomTintName = GetRowCustomTint_Name();
 
                 if (rowCustomTint.color.a > ALPHA_THRESHOLD)
                     using(new GUIColor(rowCustomTint.color)) {
@@ -225,6 +226,23 @@ namespace EnhancedHierarchy {
                                 break;
                             case TintMode.GradientRightToLeft:
                                 GUI.DrawTexture(rect, Styles.fadeTexture, ScaleMode.StretchToFill);
+                                break;
+                        }
+                    }
+
+                if (rowCustomTintName.color.a > ALPHA_THRESHOLD)
+                    using (new GUIColor( rowCustomTintName.color ))
+                    {
+                        switch (rowCustomTintName.mode)
+                        {
+                            case TintMode.Flat:
+                                EditorGUI.DrawRect( rect, Color.white );
+                                break;
+                            case TintMode.GradientLeftToRight:
+                                GUI.DrawTexture( Utility.FlipRectHorizontally( rect ), Styles.fadeTexture, ScaleMode.StretchToFill );
+                                break;
+                            case TintMode.GradientRightToLeft:
+                                GUI.DrawTexture( rect, Styles.fadeTexture, ScaleMode.StretchToFill );
                                 break;
                         }
                     }
@@ -584,6 +602,11 @@ namespace EnhancedHierarchy {
             return GetRowCustomTint(CurrentGameObject);
         }
 
+        public static NameColor GetRowCustomTint_Name()
+        {
+            return GetRowCustomTint_Name( CurrentGameObject );
+        }
+
         public static LayerColor GetRowCustomTint(GameObject go) {
             using(ProfilerSample.Get()) {
                 if (!go)
@@ -601,6 +624,28 @@ namespace EnhancedHierarchy {
                         return layerColors[i];
 
                 return new LayerColor();
+            }
+        }
+
+        public static NameColor GetRowCustomTint_Name( GameObject go )
+        {
+            using (ProfilerSample.Get())
+            {
+                if (!go)
+                    return new NameColor();
+
+                var NameRules = Preferences.PerNameRowColors.Value;
+
+                if (NameRules == null)
+                    return new NameColor();
+
+                var goName = go.name;
+
+                for (var i = 0; i < NameRules.Count; i++)
+                    if (/*alreadyColored[i].name*/goName.EndsWith("_d"))
+                        return NameRules[i];
+
+                return new NameColor();
             }
         }
 

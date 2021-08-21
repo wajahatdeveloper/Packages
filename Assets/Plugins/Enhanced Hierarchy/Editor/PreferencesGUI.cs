@@ -26,7 +26,7 @@ namespace EnhancedHierarchy {
 
         private static Vector2 scroll;
 
-        private static ReorderableList leftIconsList, rightIconsList, rowColorsList;
+        private static ReorderableList leftIconsList, rightIconsList, rowColorsList, rowColorsNamedList;
 
         private static readonly string[] minilabelsNames;
 
@@ -56,6 +56,21 @@ namespace EnhancedHierarchy {
                         PerLayerRowColors.ForceSave();
                     });
                 }
+
+                return menu;
+            }
+        }
+
+        private static GenericMenu RowNameColorsMenu
+        {
+            get
+            {
+                var menu = new GenericMenu();
+
+                menu.AddItem( new GUIContent( "_d" ), false, () => {
+                    rowColorsNamedList.list.Add(new NameColor("_d") );
+                    PerNameRowColors.ForceSave();
+                } );
 
                 return menu;
             }
@@ -203,6 +218,10 @@ namespace EnhancedHierarchy {
                     var rect = EditorGUILayout.GetControlRect(false, rowColorsList.GetHeight());
                     rect.xMin += EditorGUI.indentLevel * 16f;
                     rowColorsList.DoList(rect);
+
+                    var rectNamedColor = EditorGUILayout.GetControlRect( false, rowColorsNamedList.GetHeight() );
+                    rectNamedColor.xMin += EditorGUI.indentLevel * 16f;
+                    rowColorsNamedList.DoList( rectNamedColor );
                 }
 
                 GUI.changed = false;
@@ -341,6 +360,28 @@ namespace EnhancedHierarchy {
 
             if (value.layer > 31 || value.layer < 0)
                 return layerColor;
+
+            return value;
+        }
+
+        private static NameColor NameColorField( Rect rect, NameColor nameColor )
+        {
+            var value = nameColor;
+            var rect1 = rect;
+            var rect2 = rect;
+            var rect3 = rect;
+            var rect4 = rect;
+
+            rect1.xMax = rect1.xMin + 175f;
+            rect2.xMin = rect1.xMax;
+            rect2.xMax = rect2.xMin + 80f;
+            rect3.xMin = rect2.xMax;
+            rect3.xMax = rect3.xMin + 100;
+            rect4.xMin = rect3.xMax;
+
+            EditorGUI.LabelField( rect1, value.name );
+            value.color = EditorGUI.ColorField( rect3, value.color );
+            value.mode = (TintMode)EditorGUI.EnumPopup( rect4, value.mode );
 
             return value;
         }

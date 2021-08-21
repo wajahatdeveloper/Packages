@@ -60,6 +60,59 @@ namespace EnhancedHierarchy {
     }
 
     /// <summary>
+    /// Per Name color setting.
+    /// </summary>
+    [Serializable]
+    public struct NameColor
+    {
+
+        [SerializeField]
+        public string name;
+        [SerializeField]
+        public Color color;
+        [SerializeField]
+        public TintMode mode;
+
+        public NameColor( string name ) : this( name, Color.clear ) { }
+
+        public NameColor( string name, Color color, TintMode mode = TintMode.GradientRightToLeft )
+        {
+            this.name = name;
+            this.color = color;
+            this.mode = mode;
+        }
+
+        public static implicit operator NameColor( string name )
+        {
+            return new NameColor( name );
+        }
+
+        public static bool operator ==( NameColor left, NameColor right )
+        {
+            return left.name == right.name;
+        }
+
+        public static bool operator !=( NameColor left, NameColor right )
+        {
+            return left.name != right.name;
+        }
+
+        public override bool Equals( object obj )
+        {
+            if (!(obj is NameColor))
+                return false;
+
+            return ((NameColor)obj).name == name;
+        }
+
+        public override int GetHashCode()
+        {
+            return name.GetHashCode();
+        }
+
+    }
+
+    /// <summary>
     /// Save and load hierarchy preferences.
     /// </summary>
     public static partial class Preferences {
@@ -282,6 +335,10 @@ namespace EnhancedHierarchy {
         [AutoPrefItem]
         [AutoPrefItemLabel("Per layer row color", "Set a row color for each different layer")]
         public static PrefItem<List<LayerColor>> PerLayerRowColors;
+
+        [AutoPrefItem]
+        [AutoPrefItemLabel( "Per name row color", "Set a row color for each different name" )]
+        public static PrefItem<List<NameColor>> PerNameRowColors;
         #endregion
 
         public static MiniLabelProvider[] miniLabelProviders;
@@ -375,6 +432,19 @@ namespace EnhancedHierarchy {
 
                 if (GUI.changed)
                     PerLayerRowColors.ForceSave();
+            };
+
+            rowColorsNamedList = GenerateReordableList( PerNameRowColors );
+            rowColorsNamedList.onAddDropdownCallback = ( rect, newList ) => RowNameColorsMenu.DropDown( rect );
+
+            rowColorsNamedList.drawElementCallback = ( rect, index, focused, active ) => {
+                GUI.changed = false;
+
+                rect.xMin -= EditorGUI.indentLevel * 16f;
+                PerNameRowColors.Value[index] = NameColorField( rect, PerNameRowColors.Value[index] );
+
+                if (GUI.changed)
+                    PerNameRowColors.ForceSave();
             };
 
             RecreateMiniLabelProviders();
