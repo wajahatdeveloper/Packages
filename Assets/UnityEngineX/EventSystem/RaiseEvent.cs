@@ -8,7 +8,7 @@ using UnityEngineX;
 
 public class RaiseEvent : MonoBehaviour
 {
-	private static IEnumerable<string> EventsIdentifiers = Enum.GetNames( typeof( GameDB.EventsIdentifier ) );
+	private static IEnumerable<string> EventsIdentifiers = Enum.GetNames( typeof( Events.EventsIdentifier ) );
 
 	public bool autoHookButton = true;
 	[ValueDropdown( "EventsIdentifiers", IsUniqueList = true, DisableListAddButtonBehaviour = true, NumberOfItemsBeforeEnablingSearch = 1 )]

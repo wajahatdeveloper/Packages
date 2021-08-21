@@ -1,4 +1,3 @@
-using GameDB;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,10 +15,10 @@ public class GameManager : SingletonBehaviour<GameManager>
 
 	private void OnEnable()
 	{
-        GameDB.EventsIdentifier.Game_Paused.ConnectEvent( gameObject, OnPaused );
-        GameDB.EventsIdentifier.Game_Resumed.ConnectEvent( gameObject, OnResumed );
-        GameDB.EventsIdentifier.Game_Restart_Begin.ConnectEvent( gameObject, OnRestart );
-        GameDB.EventsIdentifier.Game_ToBack.ConnectEvent( gameObject, OnHome );
+        Events.EventsIdentifier.Game_Paused.ConnectEvent( gameObject, OnPaused );
+        Events.EventsIdentifier.Game_Resumed.ConnectEvent( gameObject, OnResumed );
+        Events.EventsIdentifier.Game_Restart_Begin.ConnectEvent( gameObject, OnRestart );
+        Events.EventsIdentifier.Game_ToBack.ConnectEvent( gameObject, OnHome );
 	}
 
 	private void OnHome( GameObject sender, object data )
@@ -54,9 +53,9 @@ public class GameManager : SingletonBehaviour<GameManager>
 
 	private void OnDisable()
 	{
-		GameDB.EventsIdentifier.Game_Paused.DisconnectEvent( gameObject );
-		GameDB.EventsIdentifier.Game_Resumed.DisconnectEvent( gameObject );
-		GameDB.EventsIdentifier.Game_Restart_Begin.DisconnectEvent( gameObject );
-		GameDB.EventsIdentifier.Game_ToBack.DisconnectEvent( gameObject );
+		Events.EventsIdentifier.Game_Paused.DisconnectEvent( gameObject );
+		Events.EventsIdentifier.Game_Resumed.DisconnectEvent( gameObject );
+		Events.EventsIdentifier.Game_Restart_Begin.DisconnectEvent( gameObject );
+		Events.EventsIdentifier.Game_ToBack.DisconnectEvent( gameObject );
 	}
 }

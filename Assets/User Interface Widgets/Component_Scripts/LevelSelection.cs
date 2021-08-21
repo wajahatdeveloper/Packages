@@ -17,7 +17,7 @@ public class LevelSelection : RuleBehaviour
 	private void OnEnable()
 	{
 		// ------------------- Rule 1 -------------------
-		gameObject.ConnectEvent( GameDB.EventsIdentifier.Clicked_Level.ToString(), LevelSelected );
+		gameObject.ConnectEvent( Events.EventsIdentifier.Clicked_Level.ToString(), LevelSelected );
 	}
 
 	private void LevelSelected(GameObject levelButton, object data)
@@ -32,7 +32,7 @@ public class LevelSelection : RuleBehaviour
 
 	private void OnDisable()
 	{
-		gameObject.DisconnectEvent( GameDB.EventsIdentifier.Clicked_Level.ToString() );
+		gameObject.DisconnectEvent( Events.EventsIdentifier.Clicked_Level.ToString() );
 	}
 	
 	// ------------------- Rule 2 -------------------

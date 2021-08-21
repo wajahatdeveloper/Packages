@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public static class EventExtensions
@@ -14,6 +15,11 @@ public static class EventExtensions
         new Dictionary<string, Dictionary<GameObject, List<EventWithData>>>();
 
     public static bool disableLogging = false;
+
+    public static void ConnectEvent(this Enum e,GameObject go, EventWithData func)
+    {
+        go.ConnectEvent(e.ToString(),func);
+    }
     
     public static void ConnectEvent(this GameObject listener, string eventName, EventWithData func)
     {
@@ -38,6 +44,11 @@ public static class EventExtensions
         }
     }
 
+    public static void DisconnectEvent(this Enum e,GameObject go)
+    {
+        go.DisconnectEvent(e.ToString());
+    }
+    
     public static void DisconnectEvent(this GameObject listener, string eventName)
     {
         if (eventHandlers.ContainsKey(eventName) == false)

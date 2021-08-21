@@ -1,13 +1,12 @@
 using UnityEngine;
 using UnityEngine.Events;
 using Sirenix.OdinInspector;
-using System.Linq;
 using System.Collections.Generic;
 using System;
 
 public class OnEvent : MonoBehaviour
 {
-	private static IEnumerable<string> EventsIdentifiers = Enum.GetNames( typeof( GameDB.EventsIdentifier ) );
+	private static IEnumerable<string> EventsIdentifiers = Enum.GetNames( typeof( Events.EventsIdentifier ) );
 
 	[ValueDropdown( "EventsIdentifiers" , IsUniqueList = true , DisableListAddButtonBehaviour = true , NumberOfItemsBeforeEnablingSearch = 1 )]
 	public string eventIdentifier;
