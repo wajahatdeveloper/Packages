@@ -3,7 +3,9 @@ using RobustFSM.Interfaces;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 namespace Assets.RobustFSM.Mono
@@ -464,8 +466,10 @@ namespace Assets.RobustFSM.Mono
                 //set the print text
                 string printText = MachineName + "\n" + CurrentState.StateName;
 
+                #if UNITY_EDITOR
                 //render the label
                 Handles.Label(transform.position, printText);
+                #endif
             }
         }
 
