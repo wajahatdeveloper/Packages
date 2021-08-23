@@ -193,7 +193,7 @@ namespace Assets.RobustFSM.Mono
         public void AddState<T>() where T : MonoBehaviour, IState, new()
         {
             //add the state
-            if (typeof(T) == typeof(MonoBehaviour))
+            if (typeof(T) == typeof(MonoBehaviour) || typeof(T).IsSubclassOf(typeof(MonoBehaviour)))
             {
                 if (!ContainsState<T>())
                 {
