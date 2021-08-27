@@ -146,7 +146,7 @@ namespace FeatureTool
                         if (SirenixEditorGUI.ToolbarButton(new GUIContent("Add Component")))
                         {
                             // Add Component Here
-                            EditorInputDialog.Show("New Domain", "Enter new Domain name", "", ret: val =>
+                            EditorInputDialog.Show("New Component", "Enter new Component name", "", ret: val =>
                             {
                                 if (!string.IsNullOrEmpty(val))
                                 {

@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities.Editor;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
+using ObjectFieldAlignment = Sirenix.OdinInspector.ObjectFieldAlignment;
 
 namespace FeatureTool
 {
@@ -12,11 +14,13 @@ namespace FeatureTool
     [System.Serializable]
     public class Component
     {
-        [DisplayAsString]
+        [DisplayAsString, LabelText("Name:")]
         public string name;
+        [HorizontalGroup("g1",0.8f), PropertySpace(spaceBefore:10f)]
         [Multiline, HideLabel, HideInTables]
         public string description;
-        [AssetSelector, HideLabel, PreviewField(ObjectFieldAlignment.Center), HideInTables,OnValueChanged("AssetChanged"),NonSerialized,ShowInInspector]
+        [HorizontalGroup("g1"), PropertySpace(spaceBefore:10f)]
+        [AssetSelector, HideLabel, PreviewField(ObjectFieldAlignment.Left), HideInTables, OnValueChanged("AssetChanged"), NonSerialized,ShowInInspector]
         public Object asset;
         [HideInInspector]
         public string assetGuid;
