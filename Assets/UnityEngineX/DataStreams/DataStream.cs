@@ -2,57 +2,63 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class DataStream
+public class DataStream
 {
+    public static Dictionary<object, DataStream> StreamMap = new Dictionary<object, DataStream>();
+    
     [System.Serializable]
     public class DataPacket
     {
-        public GameObject sender;
-        public Object unityData;
-        public object plainData;
-    }
-    
-    private static Dictionary<string,Queue<DataPacket>> _DataPipeline = new Dictionary<string, Queue<DataPacket>>();
-    
-    // Returns true if created successfully else returns false if already exists
-    public static bool Open(string id)
-    {
-        return _DataPipeline.AddIfNotContainsKey(id, new Queue<DataPacket>());
-    }
-    
-    // Returns true if created successfully else returns false if already exists
-    public static void Close(string id)
-    {
-        _DataPipeline.RemoveIfContainsKey(id);
+        public Object[] unityDataArray = null;
+        public object[] plainDataArray = null;
     }
 
-    // Returns true if pushed successfully else returns false if stream not found
-    public static bool Push(string id, DataPacket dataPacket)
-    {
-        if (_DataPipeline.ContainsKey(id) == false) { return false; }
-        
-        _DataPipeline[id].Enqueue(dataPacket);
-        return true;
-    }
-    
-    public static bool Push(string id, params object[] plainData)
-    {
-        if (_DataPipeline.ContainsKey(id) == false) { return false; }
+    private DataStream _otherPoint;
+    private Queue<DataPacket> _dataPipeline = null;
 
-        DataPacket dataPacket = new DataPacket {plainData = plainData};
-        _DataPipeline[id].Enqueue(dataPacket);
-        return true;
+    public DataStream(object key)
+    {
+        if (StreamMap.ContainsKey(key))
+        {
+            _otherPoint = StreamMap[key];
+            _dataPipeline = new Queue<DataPacket>();
+            _otherPoint._dataPipeline = _dataPipeline;
+            StreamMap.Remove(key);
+
+            if (StreamMap.ContainsKey(key))
+            {
+                Debug.LogError("Multi point Data Stream is not supported : " + key);
+            }
+        }
+        else
+        {
+            StreamMap.Add(key, this);
+        }
+    }
+
+    public void Clear()
+    {
+        _dataPipeline.Clear();
     }
     
-    // Returns data packet if pulled successfully else returns null if stream not found
-    public static DataPacket Pull(string id)
+    public void Push(DataPacket dataPacket)
     {
-        return _DataPipeline.ContainsKey(id) == false ? null : _DataPipeline[id].DequeueOrNull();
+        _dataPipeline.Enqueue(dataPacket);
     }
     
-    // Returns data packet if pulled successfully else returns null if stream not found
-    public static DataPacket Peek(string id)
+    public void Push(params object[] plainDataArray)
     {
-        return _DataPipeline.ContainsKey(id) == false ? null : _DataPipeline[id].Peek();
+        DataPacket dataPacket = new DataPacket {plainDataArray = plainDataArray};
+        _dataPipeline.Enqueue(dataPacket);
+    }
+    
+    public DataPacket Pull()
+    {
+        return _dataPipeline.DequeueOrNull();
+    }
+    
+    public DataPacket Peek()
+    {
+        return _dataPipeline.Peek();
     }
 }
