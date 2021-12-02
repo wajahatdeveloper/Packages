@@ -2,9 +2,21 @@ using UnityEngine;
 
 public class SingletonBehaviour<T> : MonoBehaviour where T : MonoBehaviour
 {
-    public static T instance;
+    private static T instance;
 
-    public virtual void Awake()
+    public static T Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = GameObject.FindObjectOfType<T>();
+            }
+            return instance;
+        }
+    }
+
+    /*public virtual void Awake()
     {
         if (instance)
         {
@@ -15,11 +27,11 @@ public class SingletonBehaviour<T> : MonoBehaviour where T : MonoBehaviour
         {
             instance = this as T;
         }
-    }
+    }*/
 
-    public virtual void OnDestroy()
+    /*public virtual void OnDestroy()
     {
         if (instance == this)
             instance = null;
-    }
+    }*/
 }
