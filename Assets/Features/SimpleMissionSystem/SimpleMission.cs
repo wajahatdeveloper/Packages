@@ -63,9 +63,9 @@ public class SimpleMission : MonoBehaviour
 
     public void StartMission()
     {
-        SimpleMissionManager.instance.CurrentMission = this;
+        SimpleMissionManager.Instance.CurrentMission = this;
         
-        SimpleMissionManager.instance.missionList.AddIfNotExists(missionName,this);
+        SimpleMissionManager.Instance.missionList.AddIfNotExists(missionName,this);
         
         startPoint.MissionStart();
         

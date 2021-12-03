@@ -12,7 +12,7 @@ public class Key_Destroy : MonoBehaviour
 
     private void Start()
     {
-        _thisMission = SimpleMissionManager.instance.missionList[missionName];
+        _thisMission = SimpleMissionManager.Instance.missionList[missionName];
     }
 
     private void OnDestroy()

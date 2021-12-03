@@ -9,7 +9,7 @@ public class PlaySoundOnStart : MonoBehaviour
 	{
 		if (!string.IsNullOrEmpty( audioID ))
 		{
-			AudioController.instance.PlaySound( audioID );
+			AudioController.Instance.PlaySound( audioID );
 		}
 	}
 }

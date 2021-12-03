@@ -12,8 +12,8 @@ public class Authentication_Cleanup : MonoRuleState
 
     private void InitiaizeReferences()
     {
-        _view = AuthenticationRoot.instance.view;
-        _model = AuthenticationRoot.instance.controller.model;
+        _view = AuthenticationRoot.Instance.view;
+        _model = AuthenticationRoot.Instance.controller.model;
     }
 
     public override void Enter()

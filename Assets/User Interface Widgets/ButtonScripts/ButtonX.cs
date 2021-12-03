@@ -39,12 +39,12 @@ namespace UnityEngineX
 
 		private void Start()
 		{
-			if (clickSound) { AudioController.instance.AddSound( "Click" + customSoundID, customSound ); }
+			if (clickSound) { AudioController.Instance.AddSound( "Click" + customSoundID, customSound ); }
 			_button = GetComponent<Button>();
 			_button.onClick.AddListener( () =>
 			{
 				OnClick?.Invoke( this );
-				if (clickSound) { AudioController.instance.PlaySound( useCustomSound ? "Click" + customSoundID : "Click" ); }
+				if (clickSound) { AudioController.Instance.PlaySound( useCustomSound ? "Click" + customSoundID : "Click" ); }
 			} );
 		}
 

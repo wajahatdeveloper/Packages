@@ -17,8 +17,8 @@ public class Authentication_Login : MonoRuleState
 
     private void InitiaizeReferences()
     {
-        _view = AuthenticationRoot.instance.view;
-        _model = AuthenticationRoot.instance.controller.model;
+        _view = AuthenticationRoot.Instance.view;
+        _model = AuthenticationRoot.Instance.controller.model;
     }
 
     public override void Enter()
@@ -31,7 +31,7 @@ public class Authentication_Login : MonoRuleState
 
     public void OnClick_ShowSignupPanel()
     {
-        AuthenticationRoot.instance.controller.ChangeState<Authentication_Signup>();
+        AuthenticationRoot.Instance.controller.ChangeState<Authentication_Signup>();
     }
     
     public void OnSubmit_LoginId(string text)

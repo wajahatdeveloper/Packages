@@ -110,7 +110,7 @@ public class Mediator_Audio : MonoBehaviour
 	public void SetSoundState( bool enable )
 	{
 		soundPaused = !enable;
-		if (enable) { AudioController.instance.SoundVolume = 1.0f; } else { AudioController.instance.SoundVolume = 0.0f; }
+		if (enable) { AudioController.Instance.SoundVolume = 1.0f; } else { AudioController.Instance.SoundVolume = 0.0f; }
 		if (rememberLastState) { SoundState = enable; }
 		OnSoundStateChanged?.Invoke( enable );
 	}
@@ -118,7 +118,7 @@ public class Mediator_Audio : MonoBehaviour
 	public void SetMusicState( bool enable )
 	{
 		musicPaused = !enable;
-		if (enable) { AudioController.instance.MusicVolume = 1.0f; } else { AudioController.instance.MusicVolume = 1.0f; }
+		if (enable) { AudioController.Instance.MusicVolume = 1.0f; } else { AudioController.Instance.MusicVolume = 1.0f; }
 		if (rememberLastState) { MusicState = enable; }
 		OnMusicStateChanged?.Invoke( enable );
 	}
@@ -126,28 +126,28 @@ public class Mediator_Audio : MonoBehaviour
 	public void SetAudioState( bool enable )
 	{
 		audioPaused = !enable;
-		if (enable) { AudioController.instance.GlobalVolume = 1.0f; } else { AudioController.instance.GlobalVolume = 0.0f; }
+		if (enable) { AudioController.Instance.GlobalVolume = 1.0f; } else { AudioController.Instance.GlobalVolume = 0.0f; }
 		if (rememberLastState) { AudioState = enable; }
 		OnAudioStateChanged?.Invoke( enable );
 	}
 
 	public void SetSoundValue( float val )
 	{
-		AudioController.instance.SoundVolume = val;
+		AudioController.Instance.SoundVolume = val;
 		if (rememberLastState) { SoundValue = val; }
 		OnSoundValueChanged?.Invoke( val );
 	}
 
 	public void SetMusicValue( float val )
 	{
-		AudioController.instance.MusicVolume = val;
+		AudioController.Instance.MusicVolume = val;
 		if (rememberLastState) { MusicValue = val; }
 		OnMusicValueChanged?.Invoke( val );
 	}
 
 	public void SetAudioValue( float val )
 	{
-		AudioController.instance.GlobalVolume = val;
+		AudioController.Instance.GlobalVolume = val;
 		if (rememberLastState) { AudioValue = val; }
 		OnAudioValueChanged?.Invoke( val );
 	}

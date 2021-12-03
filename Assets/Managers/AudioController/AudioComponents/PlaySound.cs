@@ -8,11 +8,11 @@ public class PlaySound : MonoBehaviour
 
 	public void PlaySFX( string id )
 	{
-		AudioController.instance.PlaySound( id );
+		AudioController.Instance.PlaySound( id );
 	}
 
 	public void PlaySFX_Default()
 	{
-		AudioController.instance.PlaySound( soundId );
+		AudioController.Instance.PlaySound( soundId );
 	}
 }
